@@ -2,8 +2,12 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const database = require("./config/database.config");
 
 const app = express();
+
+//connecting to database
+database.connect();
 
 app.use(logger('dev'));
 app.use(express.json());
