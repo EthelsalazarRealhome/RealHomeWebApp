@@ -22,18 +22,18 @@ postController.save = async (req, res, next) => {
     } = req.body;
     
     const { identifier } = req.params;
-    //const { user } = req;
+    const { user } = req;
 
     let post = await Post.findById(identifier);
 
     if(!post) {
       post = new Post();
-      //post["user"] = user._id;
-    }/*  else {
+      post["user"] = user._id;
+    } else {
       if(!post["user"].equals(user._id)){
         return res.status(403).json({ error: "This is not your post" });
       }
-    } */
+    }
 
     post["title"] = title;
     post["description"] = description;
@@ -64,7 +64,7 @@ postController.save = async (req, res, next) => {
 postController.findAll = async (req, res, next) => {
   try {
     const posts =
-      await Post.find({ hidden: false })//.populate("user", "username email");
+      await Post.find({ hidden: false }).populate("user", "username email");
 
     return res.status(200).json({ posts });
   } catch (error) {
@@ -74,7 +74,22 @@ postController.findAll = async (req, res, next) => {
 
 postController.findHidden = async (req, res, next) => {
   try {
-    const posts = await Post.find({ hidden: true })//.populate("user", "username email");
+    const posts = await Post.find({ hidden: true }).populate("user", "username email");
+
+    return res.status(200).json({ posts });
+  } catch (error) {
+    next(error);
+  }
+}
+
+postController.findOwn = async (req, res, next) => {
+  try {
+    const { _id: userId } = req.user;
+
+    const posts = 
+      await Post.find({ user: userId })
+        .populate("user", "username email")
+        .populate("applicants", "username email");
 
     return res.status(200).json({ posts });
   } catch (error) {
@@ -87,7 +102,7 @@ postController.findOneById = async (req, res, next) => {
     const { identifier } = req.params;
 
     const post = 
-      await Post.findOne({ _id: identifier, hidden: false })//.populate("user", "username email");
+      await Post.findOne({ _id: identifier, hidden: false }).populate("user", "username email");
 
     if(!post) {
       return res.status(404).json({ error: "Post not found" });
@@ -102,9 +117,9 @@ postController.findOneById = async (req, res, next) => {
 postController.deleteById = async (req, res, next) => {
   try {
     const { identifier } = req.params;
-    //const { user } = req;
+    const { user } = req;
 
-    const deletedPost = await Post.findOneAndDelete({ _id: identifier }); //{ user: user._id }
+    const deletedPost = await Post.findOneAndDelete({ _id: identifier, user: user._id });
 
     if(!deletedPost) { 
       return res.status(404).json({ error: "Post not found" });
@@ -121,7 +136,7 @@ postController.toggleHidden = async (req, res, next) => {
     const { identifier } = req.params;
 
     const post = 
-      await Post.findOne({ _id: identifier })//.populate("user", "username email");
+      await Post.findOne({ _id: identifier }).populate("user", "username email");
 
     if(!post) {
       return res.status(404).json({ error: "Post not found" });
