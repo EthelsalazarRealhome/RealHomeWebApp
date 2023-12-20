@@ -1,15 +1,21 @@
 import React from "react";
 import fondo from "../img/fondopto.jpg"
-import img1 from "../img/aren.jpeg";
-import img2 from "../img/pisicin.jpeg";
-import img3 from "../img/visti.jpeg";
-import img4 from "../img/rncho.jpeg";
-import img5 from "../img/Pslmers.jpeg";
+import img1 from "../img/ranchos/aren.jpeg";
+import img2 from "../img/ranchos/pisicin.jpeg";
+import img3 from "../img/ranchos/visti.jpeg";
+import img4 from "../img/ranchos/rncho.jpeg";
+import img5 from "../img/ranchos/Pslmers.jpeg";
+import { useNavigate } from "react-router-dom";
 
-
-const Home = () => {
-
+const Home = () => { 
     
+    const navigate = useNavigate();
+
+    const handleBuscarPropiedades = () => {
+      // Redirect to the 'Propied' route when the button is clicked
+      navigate("/Propied");
+    };
+  
     return (
         <div>
         <div className="w-full h-full">
@@ -21,7 +27,9 @@ const Home = () => {
                     <p className="font-bolder py-4">Encuentra tu lugar perfecto </p>
                     <h1 className="font-bold text-5xl md:text-7xl drop-shadow-2xl">Ethel Salazar-Real Home</h1>
                     <p className="max-w-[600px] drop-shadow-2xl py-2 text-xl"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus ipsum debitis fugiat corporis eligendi sapiente, laudantium unde aut dolor molestiae repellat dolorum maiores inventore iure odit cumque deserunt accusantium esse!</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                    <button className="border py-2 px-3 rounded-full mr-2 bg-white text-black">Buscar propiedades</button>
+                    <button className="border py-2 px-3 rounded-full mr-2 bg-white text-black"
+                    onClick={handleBuscarPropiedades}> Buscar propiedades
+                    </button>
                     <button className="border py-2 px-3 rounded-full bg-black text-white">Contactanos!</button>
                 </div>
             </div>

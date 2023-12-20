@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
-import Propiedades from './components/Propiedades/Propiedades';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Properties from './components/Properties/Properties';
+import Footer from './components/Footer';
+
 
 function App() {
 
@@ -12,8 +14,9 @@ function App() {
     <NavBar/>
     <Routes>
     <Route path="/" element={<Home/>} /> 
-    <Route path='Propied' element={<Propiedades/>}/>
+    <Route path='Properties' element={<Properties/>}/>
    </Routes>
+   <Footer/>
    </BrowserRouter>
     </>
   );
