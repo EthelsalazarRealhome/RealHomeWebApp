@@ -16,8 +16,13 @@ const postSchema = new Schema({
     type: Number,
     required: true
   },
-  image: {
+  images: {
+    type: [String],
+    required: true
+  },
+  service: {
     type: String,
+    trim: true,
     required: true
   },
   type: {
@@ -25,7 +30,15 @@ const postSchema = new Schema({
     trim: true,
     required: true
   },
-  size: {
+  location: {
+    type: String,
+    required: true,
+  },
+  terrainSize: {
+    type: Number,
+    required: true
+  },
+  constructionSize: {
     type: Number,
     required: true
   },
@@ -39,6 +52,10 @@ const postSchema = new Schema({
   },
   parking: {
     type: Number,
+    required: true
+  },
+  contact: {
+    type: String,
     required: true
   },
   hidden: {
