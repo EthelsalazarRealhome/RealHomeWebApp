@@ -61,8 +61,7 @@ middlewares.authentication = async (req, res, next) => {
   }
 }
 
-
-middlewares.authorization = (requiredRole = ROLES.ADMIN) => {
+middlewares.authorization = (requiredRole = ROLES.SYSADMIN) => { 
   return (req, res, next) => {
     // User must be authenticated before getting to this middleware
     try {
@@ -70,8 +69,9 @@ middlewares.authorization = (requiredRole = ROLES.ADMIN) => {
       
       //Verifying if user has the required role
       const isAuth = roles.includes(requiredRole);
-    
-      if(!isAuth) {
+      const isSysadmin = roles.includes(ROLES.SYSADMIN);
+
+      if(!isAuth && !isSysadmin) {
         return res.status(403).json({ error: "Forbidden" });
       }
 
@@ -82,6 +82,5 @@ middlewares.authorization = (requiredRole = ROLES.ADMIN) => {
     }
   }
 }
-
 
 module.exports = middlewares;

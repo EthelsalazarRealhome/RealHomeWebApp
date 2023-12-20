@@ -4,7 +4,7 @@ const ROLES = require("../data/roles.json");
 const validators = {};
 
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,32})/;
-const possibleRoles = [ROLES.ADMIN];
+const possibleRoles = [ROLES.SYSADMIN, ROLES.ADMIN];
 
 validators.registerValidator = [
   body("username")
