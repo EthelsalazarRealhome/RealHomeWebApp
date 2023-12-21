@@ -41,7 +41,7 @@ const NavBar = () => {
 
           {isLogged &&
             <NavLink to="/" onClick={logout} className="font-bold text-lg cursor-pointer">
-              <button>
+              <button className='text-white text-2xl'>
                 LogOut
               </button>
             </NavLink>
