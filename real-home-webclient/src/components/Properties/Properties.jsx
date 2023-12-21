@@ -17,7 +17,7 @@ const Properties = () => {
                 <h2 className="ml-[50px] text-3xl font-bold mb-6 mt-[50px]">
                     NUESTRAS PROPIEDADES DISPONIBLES
                 </h2>
-                <Filter onSelect={handleFilterSelect} className="mb-6" />
+                <Filter onSelect={handleFilterSelect}  />
             </div>
 
 
