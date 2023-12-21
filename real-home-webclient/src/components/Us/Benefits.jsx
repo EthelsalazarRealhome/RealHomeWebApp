@@ -19,7 +19,7 @@ const Benefits = () => {
                 </div>
                 {/*right side*/}
                 <div className="flex flex-col h-full justify-center">
-                    <h3 className="text-6xl md:text-6xl font-bold">Encuentra tu rancho ideal</h3>
+                    <h3 className="text-6xl md:text-6xl font-bold">Beneficios de trabajar con nosotros!</h3>
                     <p className="text-3xl py-6 "> Desde la venta y alquiler de propiedades hasta la búsqueda precisa de tu próximo hogar, estamos aquí para transformar cada paso del proceso inmobiliario en una experiencia emocionante y satisfactoria. Descubre cómo podemos hacer realidad tus objetivos inmobiliarios hoy mismo.</p>
                     <p className="pb-6">Transparencia y Confianza: Información clara y transparente en todo el proceso, garantizando que estés completamente informado en cada etapa de la transacción.
                         Facilidad en la Gestión: Asistencia en todo el proceso de compra, desde la selección hasta el cierre, para que puedas enfocarte en encontrar tu hogar ideal mientras nosotros nos encargamos de los detalles.</p>
