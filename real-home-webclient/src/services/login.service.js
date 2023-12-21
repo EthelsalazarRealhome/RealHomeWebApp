@@ -1,4 +1,4 @@
-//import axios from "axios";
+import axios from "axios";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
@@ -19,4 +19,12 @@ export function login ({ identifier, password }) {
 
     return token;
   });
+}
+
+export async function getUser (token = null) {
+  axios.defaults.headers.common['authorization'] = `Bearer ${token}`;
+
+  const { data } = await axios.get(`${BASE_URL}/auth/whoami`);
+
+  return data;
 }

@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import Context from "../context/UserContext";
-import loginService, { getUser } from "../services/login.service";
+import {login as loginService, getUser } from "../services/login.service";
 
 export default function useUser () {
   const {token, setToken} = useContext(Context);
@@ -18,6 +18,7 @@ export default function useUser () {
     if(token) gettingUser()
   }, [token])
 
+  //login
   const login = useCallback(({ identifier, password }) => {
     setState({ loading: true, error: false });
 
@@ -34,6 +35,7 @@ export default function useUser () {
       });
   }, [setToken]);
 
+  //logout
   const logout = useCallback(() => {
     window.sessionStorage.removeItem("token");
     setToken(null);
