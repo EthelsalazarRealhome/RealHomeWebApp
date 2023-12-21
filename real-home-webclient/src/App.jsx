@@ -13,7 +13,7 @@ import Footer from './components/Footer';
 import LoginError from './components/LogIn/LoginError';
 import { UserContextProvider } from "./context/UserContext";
 import Benefits from './components/Us/Benefits';
-import PostView from './components/AdminView/PostView';
+import PostView from './components/PostView/PostView';
 
 function App() {
 
