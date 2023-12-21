@@ -13,7 +13,7 @@ function LogIn() {
     if(hasLoginError) navigate("/LoginError");
 
     if(isLogged) {
-      if(user?.roles?.includes(ROLES.ADMIN || ROLES.SYSADMIN)) navigate("/")
+      if(user?.roles?.includes(ROLES.ADMIN || ROLES.SYSADMIN)) navigate("/Admin/AdminHome")
     }
   }, [hasLoginError, isLogged, navigate, user]);
 
