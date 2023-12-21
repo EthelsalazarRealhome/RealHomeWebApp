@@ -15,11 +15,11 @@ const NavBar = () => {
             document.body.style.overflow = 'scroll'
         }
     }
-    
+
     const closeNav = () => {
-    setNav(false);
-    document.body.style.overflow = 'scroll';
-  };
+        setNav(false);
+        document.body.style.overflow = 'scroll';
+    };
 
 
     return (
@@ -31,15 +31,15 @@ const NavBar = () => {
             <HiMenuAlt3 onClick={handleNav} className="bg-gray-700 z-20 text-white cursor-pointer" size={25} />
             <div className={nav ? "ease-in duration-300 fixed text-gray-300 right-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-10" : "absolute top-0 h-screen right-[-100%] ease-in duration-500 z-10"}>
                 <ul className="flex flex-col fixed w-full h-full items-center justify-center">
-                <NavLink to='/' onClick={closeNav}>
-                    <li className="font-bold text-5xl p-8">Home</li>
-                </NavLink>
-                <NavLink to='/Properties'onClick={closeNav}>
-                    <li className="font-bold text-5xl p-8">Propiedades</li>
-                </NavLink>
-                <NavLink to='/LogIn' onClick={closeNav}>
-                    <li className="text-xl p-16">Log In for team members only*</li>
-                </NavLink>
+                    <NavLink to='/' onClick={closeNav}>
+                        <li className="font-bold text-5xl p-8">Home</li>
+                    </NavLink>
+                    <NavLink to='/Properties' onClick={closeNav}>
+                        <li className="font-bold text-5xl p-8">Propiedades</li>
+                    </NavLink>
+                    <NavLink to='/LogIn' onClick={closeNav}>
+                        <li className="text-xl p-16">Log In for team members only*</li>
+                    </NavLink>
                 </ul>
             </div>
         </div>

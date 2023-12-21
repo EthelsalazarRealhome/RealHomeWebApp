@@ -1,14 +1,17 @@
-import React from 'react';
+import React from "react";
 
-const Footer = () => {
+const MyPosts = () => {
     return (
         <div>
-            <div className="flex flex-col-reverse items-center justify-around h-48 text-white bg-gray-200 md:flex-row md:h-36"
-                style={{ backgroundColor: "#042b5e", color: "white" }}>
+            <div className="max-w-2xl mx-auto p-4">
+                <h2 className="ml-[50px] text-3xl font-bold mb-6 mt-[50px]">
+                    PROPIEDADES PUBLICADAS
+                </h2>
+            </div>
 
 
-                <div className="px-4 text-center text-white md:px-0 md:text-left"> Ethel Salazar-RealHome ©.
-                </div>
+            <div className="fixed bottom-0 w-full flex flex-col-reverse items-center justify-around h-48 text-white bg-gray-200 md:flex-row md:h-36" style={{ backgroundColor: "#042b5e", color: "white" }}>
+                <div className="px-4 text-center text-white md:px-0 md:text-left"> Ethel Salazar-RealHome ©.</div>
                 <div className="flex items-center space-x-10">
                     <ul className="flex space-x-6">
                         <li>
@@ -31,9 +34,8 @@ const Footer = () => {
                                 <path d="M20 10C20 4.477 15.523 0 10 0C4.477 0 0 4.477 0 10C0 14.991 3.657 19.128 8.438 19.878V12.891H5.898V10H8.438V7.797C8.438 5.291 9.93 3.907 12.215 3.907C13.309 3.907 14.453 4.102 14.453 4.102V6.562H13.193C11.95 6.562 11.563 7.333 11.563 8.124V10H14.336L13.893 12.89H11.563V19.878C16.343 19.128 20 14.991 20 10Z" fill="currentColor"></path></svg></a></li></ul>
                 </div>
             </div>
-
         </div>
     );
-};
+}
 
-export default Footer;
+export default MyPosts;

@@ -24,7 +24,7 @@ const Home = () => {
     };
 
     const handleOurServices = () => {
-        navigate("OurServices");
+        navigate("/OurServices");
     };
 
     const handleTeam = () => {
