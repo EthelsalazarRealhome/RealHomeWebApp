@@ -34,6 +34,7 @@ function App() {
           <Route path="OurServices" element={<OurServices />} />
           <Route path='/LogIn' element={<LogIn />} />
           <Route path='/LoginError' element={<LoginError/>}/>
+          <Route path='/Benefits' element={<Benefits/>} />
         </Routes>
       </BrowserRouter>
       <Footer/>
