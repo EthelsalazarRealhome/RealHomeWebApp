@@ -6,8 +6,7 @@ import Properties from './components/Properties/Properties';
 import OurServices from './components/Us/OurServices';
 import Moreinfo from './components/Us/Moreinfo'
 import Team from './components/Us/Team';
-
-
+import LogIn from './components/LogIn/Login';
 
 function App() {
 
@@ -21,6 +20,7 @@ function App() {
     <Route path="/Moreinfo" element={<Moreinfo/>} />
     <Route path="/Team" element={<Team/>} />
     <Route path="OurServices" element={<OurServices/>} />
+    <Route path='/LogIn' element={<LogIn/>} />
    </Routes>
    </BrowserRouter>
     </>

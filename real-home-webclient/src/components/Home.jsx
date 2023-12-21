@@ -27,6 +27,10 @@ const Home = () => {
         navigate("OurServices");
     };
 
+    const handleTeam = () => {
+        navigate("/Team");
+    };
+
 
     return (
         <div>
@@ -50,7 +54,7 @@ const Home = () => {
 
             <div className="max-w-[900px] m-auto px-4 py-12 flex flex-wrap justify-between">
                 <button onClick={handleOurServices} className="text-xl font-bold text-gray-700">Nuestros Servicios </button>
-                <p className="text-xl font-bold text-gray-700">Quienes Somos/Nuestro Equipo</p>
+                <button onClick={handleTeam} className="text-xl font-bold text-gray-700">Quienes Somos/Nuestro Equipo</button>
                 <p className="text-xl font-bold text-gray-700">Conoce mas sobre nosotros!</p>
             </div>
 
