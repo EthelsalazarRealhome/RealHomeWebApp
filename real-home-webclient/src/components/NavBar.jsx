@@ -59,9 +59,11 @@ const NavBar = () => {
               <NavLink to='/Benefits' onClick={closeNav}>
                 <li className="font-bold text-5xl p-8">Beneficios</li>
               </NavLink>
-              <NavLink to='/LogIn' onClick={closeNav}>
-                <li className="text-xl p-16">Log In for team members only*</li>
-              </NavLink>
+              {!isLogged &&
+                <NavLink to='/LogIn' onClick={closeNav}>
+                  <li className="text-xl p-16">Log In for team members only*</li>
+                </NavLink>  
+              }
             </ul>
           </section>
         </div>
