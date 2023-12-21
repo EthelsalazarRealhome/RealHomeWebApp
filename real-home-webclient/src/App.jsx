@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import LoginError from './components/LogIn/LoginError';
 import { UserContextProvider } from "./context/UserContext";
 import Benefits from './components/Us/Benefits';
+import PostView from './components/AdminView/PostView';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
           <Route path='/LogIn' element={<LogIn />} />
           <Route path='/LoginError' element={<LoginError/>}/>
           <Route path='/Benefits' element={<Benefits/>} /> 
+          <Route path='/PostView' element={<PostView/>} />
         </Routes>
       </BrowserRouter>
       <Footer/>
