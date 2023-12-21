@@ -10,3 +10,12 @@ input[type="password"]:focus ~ .input-text {
   @apply text-blue-500 bg-[#042b5e] transform -translate-y-6 -translate-x-3 scale-75;
 }
  */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
