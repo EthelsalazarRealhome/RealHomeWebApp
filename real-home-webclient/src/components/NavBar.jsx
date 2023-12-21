@@ -23,6 +23,7 @@ const NavBar = () => {
 
 
     return (
+        <div className="fixed top-0 w-full z-50">
         <div className="absolute w-full flex mt-[0px] justify-between p-4 items-center">
             <NavLink to='/' onClick={closeNav}>
                 <h1
@@ -37,11 +38,15 @@ const NavBar = () => {
                 <NavLink to='/Properties'onClick={closeNav}>
                     <li className="font-bold text-5xl p-8">Propiedades</li>
                 </NavLink>
+                <NavLink to='/Benefits'onClick={closeNav}>
+                    <li className="font-bold text-5xl p-8">Beneficios</li>
+                </NavLink>
                 <NavLink to='/LogIn' onClick={closeNav}>
-                    <li className="text-xl p-16">Log In for team members only*</li>
+                    <li className="text-xl p-16">*Log In for team members only*</li>
                 </NavLink>
                 </ul>
             </div>
+        </div>
         </div>
     )
 }
