@@ -1,4 +1,4 @@
-import React from "react";
+
 import foto from "../../img/logos/logoblue.jpg";
 
 const Team = () => {
