@@ -2,6 +2,54 @@ import axios from "axios";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
+export const savePost = ({ 
+  title, 
+  description, 
+  price, 
+  images, 
+  service, 
+  type, 
+  location, 
+  terrainSize, 
+  constructionSize,
+  rooms, 
+  restrooms, 
+  parking,
+  contact  
+}, token = null, postId = null) => {
+  return fetch(`${BASE_URL}/post/${postId}`, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({ 
+      title, 
+      description, 
+      price, 
+      images,
+      service,
+      type,
+      location,
+      terrainSize, 
+      constructionSize,
+      rooms, 
+      restrooms, 
+      parking,
+      contact  
+    })
+  }).then(res => {
+    if(!res.ok) throw new Error("Error saving post");
+
+    return res.json();
+  }).then(res => {
+    const { message } = res;
+
+    return message;
+  });
+}
+
 export const fetchVisiblePosts = async () => {
   try {
     const { data } = await axios.get(`${BASE_URL}/post/`);
