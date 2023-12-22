@@ -15,6 +15,7 @@ import { UserContextProvider } from "./context/UserContext";
 import Benefits from './components/Us/Benefits';
 import PostView from './components/PostView/PostView';
 import AdminPostView from './components/PostView/AdminPostView';
+import CreatePostError from './components/AdminView/CreatePostError';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Route path='/Admin/AdminHome' element={<AdminHome />} />
           <Route path='/Admin/MyPosts' element={<MyPosts/>} />
           <Route path='/Admin/CreatePost' element={<CreatePost/>} />
+          <Route path='/Admin/CreatePostError' element={<CreatePostError/>} />
           <Route path="OurServices" element={<OurServices />} />
           <Route path='/LogIn' element={<LogIn />} />
           <Route path='/LoginError' element={<LoginError/>}/>

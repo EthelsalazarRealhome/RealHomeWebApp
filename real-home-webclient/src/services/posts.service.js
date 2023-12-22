@@ -17,7 +17,7 @@ export const savePost = ({
   parking,
   contact  
 }, token = null, postId = null) => {
-  return fetch(`${BASE_URL}/post/${postId}`, {
+  return fetch(`${BASE_URL}/post/${postId ? postId : ""}`, {
     method: "POST",
     mode: "cors",
     headers: {
