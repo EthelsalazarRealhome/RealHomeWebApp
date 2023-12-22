@@ -6,7 +6,7 @@ export const fetchVisiblePosts = async () => {
   try {
     const { data } = await axios.get(`${BASE_URL}/post/`);
 
-    return data;
+    return data.posts;
   } catch (error) {
     throw new Error("Error fetching posts");
   }
@@ -16,7 +16,7 @@ export const fetchHiddenPosts = async () => {
   try {
     const { data } = await axios.get(`${BASE_URL}/post/hidden`);
 
-    return data;
+    return data.posts;
   } catch (error) {
     throw new Error("Error fetching hidden posts");
   }
