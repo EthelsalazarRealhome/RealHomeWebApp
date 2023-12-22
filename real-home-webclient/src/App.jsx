@@ -38,8 +38,8 @@ function App() {
           <Route path='/Benefits' element={<Benefits/>} /> 
           <Route path='/PostView' element={<PostView/>} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
-      <Footer/>
     </UserContextProvider>
     </>
   );

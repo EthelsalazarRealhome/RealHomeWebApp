@@ -13,7 +13,7 @@ const Filter = ({ onSelect }) => {
 
   return (
     <div className="filter-container">
-      <span>Filtrar por:</span>
+      <span className="text-xl font-semibold text-[#042b5e]">Filtrar mi busqueda por: </span>
       <select onChange={(e) => onSelect(e.target.value)}>
         <option value="">Seleccionar</option>
         {options.map((option, index) => (
