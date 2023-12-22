@@ -1,5 +1,4 @@
 import img from '../../img/ranchos/pisicin.jpeg'
-import React from "react";
 import WhatsAppIcon from '../../img/WhatsAppLogo.svg.png'
 
 const PostView = () => {
