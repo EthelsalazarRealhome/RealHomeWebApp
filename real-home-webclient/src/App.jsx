@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import Properties from './components/Properties/Properties';
 import OurServices from './components/Us/OurServices';
 import Moreinfo from './components/Us/Moreinfo'
@@ -14,6 +14,8 @@ import LoginError from './components/LogIn/LoginError';
 import { UserContextProvider } from "./context/UserContext";
 import Benefits from './components/Us/Benefits';
 import PostView from './components/PostView/PostView';
+import AdminPostView from './components/PostView/AdminPostView';
+import CreatePostError from './components/AdminView/CreatePostError';
 
 function App() {
 
@@ -32,11 +34,13 @@ function App() {
           <Route path='/Admin/AdminHome' element={<AdminHome />} />
           <Route path='/Admin/MyPosts' element={<MyPosts/>} />
           <Route path='/Admin/CreatePost' element={<CreatePost/>} />
+          <Route path='/Admin/CreatePostError' element={<CreatePostError/>} />
           <Route path="OurServices" element={<OurServices />} />
           <Route path='/LogIn' element={<LogIn />} />
           <Route path='/LoginError' element={<LoginError/>}/>
           <Route path='/Benefits' element={<Benefits/>} /> 
-          <Route path='/PostView' element={<PostView/>} />
+          <Route path='/PostView/:postId' element={<PostView/>} />
+          <Route path='/AdminPostView/:postId' element={<AdminPostView/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>
