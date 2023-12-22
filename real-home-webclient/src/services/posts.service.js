@@ -31,3 +31,22 @@ export const fetchOnePost = async (id) => {
     throw new Error("Error fetching post data");
   }
 }
+
+export const visibility = async (id) => {
+  try {
+    const { data } = await axios.patch(`${BASE_URL}/post/visibility/${id}`);
+    return data;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+export const deleteOne = async (id) => {
+  try {
+    const { data } = await axios.delete(`${BASE_URL}/post/${id}`);
+
+    return data;
+  } catch (error) {
+    throw new Error(error);
+  }
+}

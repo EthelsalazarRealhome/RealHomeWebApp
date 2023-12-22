@@ -3,9 +3,9 @@ import WhatsAppIcon from '../../img/WhatsAppLogo.svg.png'
 import usePosts from '../../hooks/usePosts';
 import { useEffect } from 'react';
 
-const PostView = () => {
+const AdminPostView = () => {
   const { postId } = useParams();
-  const { loading, getSinglePost, singlePost: post } = usePosts();
+  const { loading, getSinglePost, singlePost: post, toggleHidden } = usePosts();
 
   useEffect(() => {
     getSinglePost(postId);
@@ -17,6 +17,14 @@ const PostView = () => {
 
     window.open(whatsappLink, '_blank');
   };
+
+  const handleVisibility = () => {
+    toggleHidden(postId);
+  }
+
+  const handleDelete = () => {
+    
+  }
 
   return (
     <div className="container mx-auto mt-[70px] p-8 bg-gray-200 rounded-lg shadow-lg">
@@ -99,6 +107,14 @@ const PostView = () => {
                 </span>
                 WhatsApp
               </button>
+              <button onClick={handleVisibility} style={{
+                background: post.hidden ? '#ddc807' : "rgb(34 197 94)" 
+              }} className='w-16 rounded-lg'>
+                { post.hidden ? "Oculto" : "Visible" }
+              </button>
+              <button onClick={handleDelete} className='bg-rose-500 w-16 rounded-lg'>
+                Eliminar Post
+              </button>
             </div>
           </div>
         </>
@@ -107,4 +123,4 @@ const PostView = () => {
   );
 }
 
-export default PostView;
+export default AdminPostView;

@@ -102,7 +102,7 @@ postController.findOneById = async (req, res, next) => {
     const { identifier } = req.params;
 
     const post = 
-      await Post.findOne({ _id: identifier, hidden: false }).populate("user", "username email");
+      await Post.findOne({ _id: identifier }).populate("user", "username email");
 
     if(!post) {
       return res.status(404).json({ error: "Post not found" });
