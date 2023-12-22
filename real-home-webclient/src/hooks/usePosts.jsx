@@ -1,9 +1,10 @@
 import { useCallback, useState } from "react";
-import { fetchVisiblePosts, fetchHiddenPosts } from "../services/posts.service";
+import { fetchVisiblePosts, fetchHiddenPosts, fetchOnePost } from "../services/posts.service";
 
 export default function usePosts () {
   const [posts, setPosts] = useState([]); 
   const [hiddenPosts, setHiddenPosts] = useState([]);
+  const [singlePost, setSinglePost] = useState({});
 
   const [loading, setLoading] = useState(false);
 
@@ -30,12 +31,26 @@ export default function usePosts () {
       setLoading(false);
     }
   }, []);
+
+  const getSinglePost = useCallback(async (id=null) => {
+    try {
+      setLoading(true);
+      const fetchedPost = await fetchOnePost(id);
+      setSinglePost(fetchedPost);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
   
   return {
     loading,
     posts,
     hiddenPosts,
+    singlePost,
     getPosts,
-    getHiddenPosts
+    getHiddenPosts,
+    getSinglePost
   };
 }

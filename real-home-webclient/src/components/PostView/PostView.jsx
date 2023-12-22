@@ -1,7 +1,16 @@
+import { useParams } from 'react-router';
 import img from '../../img/ranchos/pisicin.jpeg'
 import WhatsAppIcon from '../../img/WhatsAppLogo.svg.png'
+import usePosts from '../../hooks/usePosts';
+import { useEffect } from 'react';
 
 const PostView = () => {
+  const { postId } = useParams();
+  const { loading, getSinglePost, singlePost: post } = usePosts();
+
+  useEffect(() => {
+    getSinglePost(postId);
+  }, [postId, getSinglePost]);
 
   const handleContactUs = () => {
     const whatsappLink =
@@ -12,78 +21,91 @@ const PostView = () => {
 
   return (
     <div className="container mx-auto mt-[70px] p-8 bg-gray-200 rounded-lg shadow-lg">
-      <h2 className="text-3xl font-semibold mb-4">Rancho en venta en playa San Blas</h2>
-      <img className="w-full h-auto object-cover mb-4" src={img} alt='/' />
 
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <p className="text-lg font-bold mb-2">Descripción:</p>
-          <p className="text-gray-700">Rancho full equipado y listo para ir a pasar vacaciones y fines de semana en familia, posee aire acondicionado en todas habitaciones, piscina climatizada y mucho mas!</p>
-        </div>
+      {
+        loading ? <p>Cargando...</p> :
+        <>
+          <h2 className="text-3xl font-semibold mb-4">{ post.title }</h2>
 
-        <div>
-          <p className="text-lg font-bold mb-2">Precio:</p>
-          <p>$250.000</p>
-        </div>
+          <section className='flex flex-row items-center justify-center gap-7 mb-4'>
+            {
+              post.images?.map(image => (
+                <figure key={image} className='h-96 w-3/5 shadow-lg'>
+                  <img className="w-full h-full object-cover rounded-lg" src={image} alt='/' />
+                </figure>
+              ))
+            }
+          </section>
 
-        <div>
-          <p className="text-lg font-bold mb-2">Ubicacion:</p>
-          <p>Res. Isla de San Blas, La Libertad, El Salvador</p>
-        </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <p className="text-lg font-bold mb-2">Descripción:</p>
+              <p className="text-gray-700">{ post.description }</p>
+            </div>
 
-        <div>
-          <p className="text-lg font-bold mb-2">Servicio:</p>
-          <p>Venta</p>
-        </div>
+            <div>
+              <p className="text-lg font-bold mb-2">Precio:</p>
+              <p>${ post.price }</p>
+            </div>
 
-        <div>
-          <p className="text-lg font-bold mb-2">Tipo de propiedad</p>
-          <p>Playa</p>
-        </div>
+            <div>
+              <p className="text-lg font-bold mb-2">Ubicacion:</p>
+              <p>{ post.location }</p>
+            </div>
 
-        <div>
-          <p className="text-lg font-bold mb-2">Tamaño del terreno:</p>
-          <p>100 varas cuadradas</p>
-        </div>
+            <div>
+              <p className="text-lg font-bold mb-2">Servicio:</p>
+              <p>{ post.service }</p>
+            </div>
 
-        <div>
-          <p className="text-lg font-bold mb-2">Tamaño de construccion total:</p>
-          <p>80 varas cuadradas</p>
-        </div>
+            <div>
+              <p className="text-lg font-bold mb-2">Tipo de propiedad</p>
+              <p>{ post.type }</p>
+            </div>
 
-        <div>
-          <p className="text-lg font-bold mb-2">Cuartos:</p>
-          <p>3</p>
-        </div>
+            <div>
+              <p className="text-lg font-bold mb-2">Tamaño del terreno:</p>
+              <p>{ post.terrainSize } varas cuadradas</p>
+            </div>
 
-        <div>
-          <p className="text-lg font-bold mb-2">Baños:</p>
-          <p>2</p>
-        </div>
-        <div>
-          <p className="text-lg font-bold mb-2">Parqueos:</p>
-          <p>4</p>
-        </div>
-        <div>
-          <p className="text-lg font-bold mb-2">Contacto:</p>
-          <p>7828-7736</p>
-        </div>
-        <div>
-          <button
-            onClick={handleContactUs}
-            className="text-lg font-bold bg-white border border-green-500 text-green-500 px-4 py-2 rounded-full transition duration-300 hover:bg-green-500 hover:text-white flex items-center"
-          >
-            <span className="mr-2">
-              <img src={WhatsAppIcon} alt="WhatsApp Icon" className="w-6 h-6" />
-            </span>
-            WhatsApp
-          </button>
-        </div>
+            <div>
+              <p className="text-lg font-bold mb-2">Tamaño de construccion total:</p>
+              <p>{ post.constructionSize } varas cuadradas</p>
+            </div>
 
+            <div>
+              <p className="text-lg font-bold mb-2">Cuartos:</p>
+              <p>{ post.rooms }</p>
+            </div>
 
-      </div>
+            <div>
+              <p className="text-lg font-bold mb-2">Baños:</p>
+              <p>{ post.restrooms }</p>
+            </div>
+            <div>
+              <p className="text-lg font-bold mb-2">Parqueos:</p>
+              <p>{ post.parking }</p>
+            </div>
+            <div>
+              <p className="text-lg font-bold mb-2">Contacto:</p>
+              <p>{ post.contact }</p>
+            </div>
+            <div>
+              <button
+                onClick={handleContactUs}
+                className="text-lg font-bold bg-white border border-green-500 text-green-500 px-4 py-2 rounded-full transition duration-300 hover:bg-green-500 hover:text-white flex items-center"
+              >
+                <span className="mr-2">
+                  <img src={WhatsAppIcon} alt="WhatsApp Icon" className="w-6 h-6" />
+                </span>
+                WhatsApp
+              </button>
+            </div>
+          </div>
+        </>
+      }
     </div>
-  )
+  );
 }
 
 export default PostView;

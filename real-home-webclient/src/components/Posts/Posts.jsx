@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Posts ({ posts=[] }) {
   console.log(posts);
@@ -8,7 +8,7 @@ function Posts ({ posts=[] }) {
       { 
         posts?.map(post => (
           <li key={post._id} className="max-w-md bg-gray-100 rounded-md overflow-hidden shadow-md p-2 cursor-pointer">
-            <Link to='/PostView'>
+            <NavLink to={`/PostView/${post._id}`}>
               <img src={post.images[0]} className="w-full h-auto object-cover rounded-md mb-4" />
               <div className="flex-grow p-4 flex flex-col">
                 <div className="flex mb-2">
@@ -24,7 +24,7 @@ function Posts ({ posts=[] }) {
                   </div>
                 </div>
               </div>
-            </Link>
+            </NavLink>
           </li>
         )) 
       }

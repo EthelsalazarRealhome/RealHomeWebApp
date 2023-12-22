@@ -36,7 +36,7 @@ function App() {
           <Route path='/LogIn' element={<LogIn />} />
           <Route path='/LoginError' element={<LoginError/>}/>
           <Route path='/Benefits' element={<Benefits/>} /> 
-          <Route path='/PostView' element={<PostView/>} />
+          <Route path='/PostView/:postId' element={<PostView/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>
