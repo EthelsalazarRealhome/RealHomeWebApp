@@ -49,7 +49,12 @@ const NavBar = () => {
             </NavLink>
           }
 
-          <HiMenuAlt3 onClick={handleNav} className="bg-gray-700 z-20 text-white cursor-pointer" size={25} />
+<div className='flex items-center'> {/* Wrap "Menu" and HiMenuAlt3 in a flex container */}
+    <p className='text-2xl p-2 font-bold'>Menu</p>
+    <HiMenuAlt3 onClick={handleNav} className="bg-gray-700 z-20 text-white cursor-pointer" size={25} />
+  </div>
+
+          
           <section className={nav ? "ease-in duration-300 fixed text-gray-300 right-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-10" : "absolute top-0 h-screen right-[-100%] ease-in duration-500 z-10"}>
             {
               (isLogged && user?.roles?.includes(ROLES.ADMIN || ROLES.SYSADMIN)) ? <AdminMenu closeNav={closeNav}/> : <UserMenu closeNav={closeNav}/>
