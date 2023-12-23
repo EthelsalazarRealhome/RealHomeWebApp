@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import useManagePost from "../../hooks/useManagePost";
 import { useNavigate } from "react-router-dom";
@@ -7,27 +7,34 @@ const services = ["alquiler", "venta"];
 const possibleTypes = ["casa", "apartamento", "playa", "local/oficina/bodega", "terrenos/fincas", "casas de campo"]
 
 const CreatePost = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(null);
-  const [images, setImages] = useState([]); 
-  const [service, setService] = useState("");
-  const [type, setType] = useState("");
-  const [location, setLocation] = useState(""); 
-  const [terrainSize, setTerrainSize] = useState(null);
-  const [constructionSize, setConstructionSize] = useState(null);
-  const [rooms, setRooms] = useState(null);
-  const [restrooms, setRestrooms] = useState(null); 
-  const [parking, setParking] = useState(null); 
-  const [contact, setContact] = useState("");
+  const [title, setTitle] = useState(window.localStorage.getItem("title"));
+  const [description, setDescription] = useState(window.localStorage.getItem("description"));
+  const [price, setPrice] = useState(window.localStorage.getItem("price"));
+  const [images, setImages] = useState(window.localStorage.getItem("images")); 
+  const [service, setService] = useState(window.localStorage.getItem("service"));
+  const [type, setType] = useState(window.localStorage.getItem("type"));
+  const [location, setLocation] = useState(window.localStorage.getItem("location")); 
+  const [terrainSize, setTerrainSize] = useState(window.localStorage.getItem("terrainSize"));
+  const [constructionSize, setConstructionSize] = useState(window.localStorage.getItem("constructionSize"));
+  const [rooms, setRooms] = useState(window.localStorage.getItem("rooms"));
+  const [restrooms, setRestrooms] = useState(window.localStorage.getItem("restrooms")); 
+  const [parking, setParking] = useState(window.localStorage.getItem("parking")); 
+  const [contact, setContact] = useState(window.localStorage.getItem("contact"));
 
   const navigate = useNavigate();
   const { isLoading, hasError, uploadPost } = useManagePost();
   const [isSucces, setIsSucces] = useState(false);
 
-  /* useEffect(() => {
-    if(hasError) navigate("/Admin/CreatePostError");
-  }, [hasError, navigate]); */
+  useEffect(() => {
+    window.addEventListener("beforeunload", alertUser);
+    return () => {
+      window.removeEventListener("beforeunload", alertUser);
+    };
+  }, []);
+
+  const alertUser = (e) => {
+    e.preventDefault();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,24 +56,12 @@ const CreatePost = () => {
      });
 
     if(hasError) {
-      setTitle(window.localStorage.getItem("title"));
-      setDescription(window.localStorage.getItem("description"));
-      setPrice(window.localStorage.getItem("price"));
-      setImages(window.localStorage.getItem("images"));
-      setService(window.localStorage.getItem("service"));
-      setType(window.localStorage.getItem("type"));
-      setLocation(window.localStorage.getItem("location"));
-      setTerrainSize(window.localStorage.getItem("terrainSize"));
-      setConstructionSize(window.localStorage.getItem("constructionSize"));
-      setRooms(window.localStorage.getItem("rooms"));
-      setRestrooms(window.localStorage.getItem("restrooms"));
-      setParking(window.localStorage.getItem("parking"));
-      setContact(window.localStorage.getItem("contact"));
-
       navigate("/Admin/CreatePostError");
+      return;
     }
 
     setIsSucces(!isSucces);
+    window.localStorage.clear();
   }
 
 
@@ -212,7 +207,7 @@ const CreatePost = () => {
                 value={contact}
               />
               <span className="text-l cursor-text text-gray-700 text-opacity-80 absolute left-0 top-3 mx-2 px-1 transition duration-200 tracking-wide peer-focus:text-blue-500 pointer-events-none peer-focus:bg-white peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:-translate-x-3 ml-2 peer-valid:scale-75 peer-valid:bg-white peer-valid:-translate-y-6 peer-valid:-translate-x-3">
-                Número de teléfono (PARA LLAMADAS)
+                Número de teléfono (ej: +503 77777777) 
               </span>
             </label>
 
