@@ -27,13 +27,11 @@ const AdminPostView = () => {
   }
 
   return (
-    <div className="container mx-auto mt-[70px] p-8 bg-gray-200 rounded-lg shadow-lg">
+    <div className="container mx-auto mt-[90px] mb-10 p-8 bg-gray-200 rounded-lg shadow-lg">
 
       {
         loading ? <p>Cargando...</p> :
         <>
-          <h2 className="text-3xl font-semibold mb-4">{ post.title }</h2>
-
           <section className='flex flex-row items-center justify-center gap-7 mb-4'>
             {
               post.images?.map(image => (
@@ -44,60 +42,67 @@ const AdminPostView = () => {
             }
           </section>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <p className="text-lg font-bold mb-2">Descripción:</p>
-              <p className="text-gray-700">{ post.description }</p>
+          <h2 className="text-5xl font-RubikMonoOne mb-5 mt-5">{ post.title }</h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2">
+            
+            <div  className='flex mt-0 sm:order-1 md:order-1 lg:order-1'>
+              <p className='mr-2 mt-3 text-xl text-black font-bold uppercase font-spaceGrotesk'>Servicio:</p>
+              <p className='mt-3 text-xl text-[#ddc807] font-bold uppercase font-spaceGrotesk'>{ post.service }</p>
             </div>
 
-            <div>
-              <p className="text-lg font-bold mb-2">Precio:</p>
-              <p>${ post.price }</p>
+             <div className="flex mt-4 sm:order-2 md:order-2 lg:order-2">
+                <p className="text-lg mr-2">Tipo de Propiedad:</p>
+                <p className="text-2xl font-bold uppercase text-[#042b5e]">{post.type}</p>
+              </div>
+
+            <div className="flex mt-4 sm:order-2 md:order-2 lg:order-2">
+              <p className="text-lg mr-2">Ubicacion:</p>
+              <p className="text-2xl text-[#042b5e] font-bold">{ post.location }</p>
             </div>
 
-            <div>
-              <p className="text-lg font-bold mb-2">Ubicacion:</p>
-              <p>{ post.location }</p>
+            <div className='flex mt-4 sm:order-3 md:order-3 lg:order-3'>
+              <p className="text-lg mr-2">Precio:</p>
+              <p className="text-2xl text-black font-bold ">${ post.price }</p>
             </div>
 
-            <div>
-              <p className="text-lg font-bold mb-2">Servicio:</p>
-              <p>{ post.service }</p>
+            <div className='flex mt-3 sm:order-4 md:order-4 lg:order-4'>
+              <p className="text-lg mr-2">Cuartos:</p>
+              <p className='text-2xl font-bold'>{ post.rooms }</p>
             </div>
 
-            <div>
-              <p className="text-lg font-bold mb-2">Tipo de propiedad</p>
-              <p>{ post.type }</p>
+            <div className='flex mb-2 mt-2 sm:order-5 md:order-5 lg:order-5'>
+              <p className="text-lg mr-2">Baños:</p>
+              <p className='text-2xl font-bold '>{ post.restrooms }</p>
             </div>
 
-            <div>
-              <p className="text-lg font-bold mb-2">Tamaño del terreno:</p>
-              <p>{ post.terrainSize } varas cuadradas</p>
+            <div className='flex sm:mb-6 sm:mt-2 lg:mt-0 lg:mb-0 lg:order-6'>
+              <p className="text-lg mr-2">Parqueos:</p>
+              <p className='text-2xl font-bold'>{ post.parking }</p>
             </div>
 
-            <div>
-              <p className="text-lg font-bold mb-2">Tamaño de construccion total:</p>
-              <p>{ post.constructionSize } varas cuadradas</p>
+            <div className='flex mt-2 sm:order-7 md:order-7 lg:order-7'>
+              <p className="text-lg mr-2">Tamaño del terreno:</p>
+              <p className='text-xl font-bold'>{ post.terrainSize } Varas cuadradas</p>
             </div>
 
-            <div>
-              <p className="text-lg font-bold mb-2">Cuartos:</p>
-              <p>{ post.rooms }</p>
+            <div className='flex mb-4 mt-3 sm:order-8 md:order-8 lg:order-8'>
+              <p className="text-lg mr-2">Tamaño de construccion total:</p>
+              <p className='text-xl font-bold'>{ post.constructionSize } varas cuadradas</p>
             </div>
 
-            <div>
-              <p className="text-lg font-bold mb-2">Baños:</p>
-              <p>{ post.restrooms }</p>
+            <div className='flex mt-1 sm:order-9 md:order-9 lg:order-9'>
+              <p className="text-lg mr-2">Contacto:</p>
+              <p className='text-2xl font-bold'>{ post.contact }</p>
             </div>
-            <div>
-              <p className="text-lg font-bold mb-2">Parqueos:</p>
-              <p>{ post.parking }</p>
-            </div>
-            <div>
-              <p className="text-lg font-bold mb-2">Contacto:</p>
-              <p>{ post.contact }</p>
-            </div>
-            <div>
+
+            <div className='flex sm:mt-4 md:mt-3 lg:mt-3 sm:order-10 md:order-10 lg:order-10'>
+              <p className="text-lg mr-2">Descripción:</p>
+              <p className="text-gray-700 font-bold text-xl">{ post.description }</p>
+            </div>       
+          </div>
+
+          <div className='flex gap-4 mx-aut0 mt-4 mb-4'>
               <button
                 onClick={handleContactUs}
                 className="text-lg font-bold bg-white border border-green-500 text-green-500 px-4 py-2 rounded-full transition duration-300 hover:bg-green-500 hover:text-white flex items-center"
@@ -107,16 +112,20 @@ const AdminPostView = () => {
                 </span>
                 WhatsApp
               </button>
-              <button onClick={handleVisibility} style={{
+
+              </div>
+              <div className='flex gap-4 text-center'>
+
+              <button className='text-center font-bold py-1 px-4 rounded text-white' onClick={handleVisibility} style={{
                 background: post.hidden ? '#ddc807' : "rgb(34 197 94)" 
-              }} className='w-16 rounded-lg'>
+              }}>
                 { post.hidden ? "Oculto" : "Visible" }
               </button>
-              <button onClick={handleDelete} className='bg-rose-500 w-16 rounded-lg'>
+              <button onClick={handleDelete} className='bg-rose-500 text-center font-bold py-1 px-4 rounded text-white'>
                 Eliminar Post
               </button>
-            </div>
-          </div>
+
+              </div>
         </>
       }
     </div>

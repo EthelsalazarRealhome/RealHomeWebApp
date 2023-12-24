@@ -23,7 +23,7 @@ function AdminPosts ({ posts=[] }) {
                     <p className="bg-[#042b5e] text-center rounded-md text-white font-semibold text-xl">{ post.type }</p>
                   </div>
                 </div>
-                <span style={{
+                <span  className="w-fit p-2 rounded text-white font-bold text-lg"style={{
                   background: post.hidden ? '#ddc807' : "rgb(34 197 94)" 
                 }}>{ post.hidden ? "oculto" : "visible" }</span>
               </div>
