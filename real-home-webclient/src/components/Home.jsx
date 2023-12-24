@@ -6,8 +6,8 @@ import img3 from "../img/ranchos/visti.jpeg";
 import img4 from "../img/ranchos/rncho.jpeg";
 import img5 from "../img/ranchos/Pslmers.jpeg";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
-
+import propertie1 from '../img/prueba1.jpeg'
+import phonesvg from '../img/postsvgs/phone.svg.png'
 const Home = () => {
 
     const navigate = useNavigate();
@@ -78,7 +78,27 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-    
+
+            <div className='mt-12 mb-10 flex items-center justify-center'>
+                <section className="flex flex-col w-[1600px] h-full lg:flex-row lg:h-96">
+                    <div className="inline-flex flex-col justify-center w-full px-4 py-12 bg-[#ddc807] md:px-12 lg:w-1/2">
+                        <h3 className="mb-4 text-4xl font-bold font-anton tracking-wide 2xl:text-4xl ">Trabaja con nosotros hoy mismo!</h3>
+                        <p className="mb-8 tracking-wide font-semibold font-anton text-black text-xl"> Obtén orientación individualizada para preparar y presentar tu propiedad de manera atractiva en el mercado, destacando sus mejores características y valor.
+                        </p>
+                        <div>
+                            <a href="https://api.whatsapp.com/send?phone=%2B50378287736&data=ARBdc2tNAjVnLT0Tg_YPi0WgleGqbrv1e77VyM9PaQc1UEQBZzvdVWqB533gILDdyCvR-brfwVDmWvMjtEr98UeBnElA9PJaEtuf6h7On7Lu_xarA3AHU0OVpclr5jVFnX2sp4y8u7F_oeuKmRkV9TktJg&source=FB_Page&app=facebook&entry_point=page_cta';"
+                                className="inline-flex items-center px-3 py-3 text-white transition-all duration-300 ease-in-out rounded-md 2xl:px-6 2xl:py-3 bg-green-500 hover:bg-white hover:text-green-600">
+                                <span className="pr-4 font-semibold tracking-wide">Contactanos!</span>
+                                <img src={phonesvg} alt="phone icon" className="w-6 h-6 mr-2" />
+                            </a>
+                        </div>
+                    </div>
+                    <div className="w-full lg:w-1/2">
+                        <img src={propertie1} alt="" className="object-cover w-full h-full"></img>
+                    </div>
+                </section>
+            </div>
+
         </div>
     )
 }

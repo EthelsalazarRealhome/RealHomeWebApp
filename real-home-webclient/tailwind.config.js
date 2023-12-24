@@ -11,6 +11,7 @@ export default {
         merriweather: ['Merriweather', 'serif'],
         spaceGrotesk: ['Space Grotesk', 'sans-serif'],
         wavefont: ['Wavefont', 'cursive'],
+        RubikMonoOne: ['Rubik Mono One']
       },
     },
   },
@@ -19,6 +20,7 @@ export default {
     function ({ addBase, theme }) {
       addBase({
         '@import url("https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital@1&family=Space+Grotesk:wght@500&family=Wavefont&display=swap");': {},
+        '@import url("https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital@1&family=Rubik+Mono+One&family=Space+Grotesk:wght@500&family=Wavefont&display=swap");': {},
       });
     },
   ],
