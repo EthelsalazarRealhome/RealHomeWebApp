@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import useManagePost from "../../hooks/useManagePost";
 import { useNavigate } from "react-router-dom";
+import useUploadImage from "../../hooks/useUploadImage";
+import { useDropzone } from 'react-dropzone'
+
 
 const services = ["alquiler", "venta"];
 const possibleTypes = ["casa", "apartamento", "playa", "local/oficina/bodega", "terrenos/fincas", "casas de campo"]
@@ -10,7 +13,6 @@ const CreatePost = () => {
   const [title, setTitle] = useState(window.localStorage.getItem("title"));
   const [description, setDescription] = useState(window.localStorage.getItem("description"));
   const [price, setPrice] = useState(window.localStorage.getItem("price"));
-  const [images, setImages] = useState(window.localStorage.getItem("images")); 
   const [service, setService] = useState(window.localStorage.getItem("service"));
   const [type, setType] = useState(window.localStorage.getItem("type"));
   const [location, setLocation] = useState(window.localStorage.getItem("location")); 
@@ -21,9 +23,35 @@ const CreatePost = () => {
   const [parking, setParking] = useState(window.localStorage.getItem("parking")); 
   const [contact, setContact] = useState(window.localStorage.getItem("contact"));
 
+  const [rawImages, setRawImages] = useState([]);
+  const [preview, setPreview] = useState([]);
+  const { uploadImages, imagesLoading } = useUploadImage();
+
   const navigate = useNavigate();
   const { isLoading, hasError, uploadPost } = useManagePost();
   const [isSucces, setIsSucces] = useState(false);
+
+  const onDrop = useCallback(acceptedFiles => {
+    setRawImages(acceptedFiles);
+    let imgPrevs = [];
+    
+    for (const acceptedFile of acceptedFiles) {
+      const file = new FileReader;
+      
+      file.readAsDataURL(acceptedFile);
+      
+      file.onload = () => {
+        imgPrevs.push(file.result);
+      }
+      
+    }
+
+    setPreview(imgPrevs);
+  }, [])
+
+  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
+
 
   useEffect(() => {
     window.addEventListener("beforeunload", alertUser);
@@ -31,13 +59,15 @@ const CreatePost = () => {
       window.removeEventListener("beforeunload", alertUser);
     };
   }, []);
-
+  
   const alertUser = (e) => {
     e.preventDefault();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    const images = await uploadImages(rawImages);
 
     uploadPost({ 
       title, 
@@ -66,13 +96,14 @@ const CreatePost = () => {
 
 
   return (
-    <div className="h-full">
+    <div className="h-full flex flex-col justify-center items-center">
       <div className="max-w-2xl mx-auto p-4">
         <h2 className="ml-[50px] text-3xl font-bold mb-6 mt-[50px]">
           PUBLICAR PROPIEDAD
         </h2>
       </div>
 
+      {imagesLoading && <p>Subiendo imagenes...</p>}
       {isLoading && <p>Creando post...</p>}
 
       {
@@ -86,7 +117,7 @@ const CreatePost = () => {
       }
 
       {
-        !isSucces &&
+        (!isSucces && !isLoading && !imagesLoading) &&
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-6" >
           <div className="flex flex-col">
@@ -125,17 +156,39 @@ const CreatePost = () => {
               </span>
             </label>
 
-            <input
-              type="text"
-              name="image"
+            <div {...getRootProps()} 
+              className="cursor-pointer m-3 lg:m-5 shadow appearance-none border border-gray-300 rounded h-[300px] py-3 lg:py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            >
+              <input {...getInputProps()} className="w-full h-full"/>
+              {
+                isDragActive ?
+                  <p>Drop the files here ...</p> :
+                  <p>Drag n drop some files here, or click to select files</p>
+              }
+              {
+                !isDragActive &&
+                <div className="p-4 flex flex-row flex-wrap items-center justify-center gap-4">
+                  {
+                    preview.map(img => (
+                      <figure key={img} className="h-36 w-36 shadow-lg">
+                        <img src={img} className="w-full h-full object-cover rounded-lg"/>
+                      </figure>
+                    ))
+                  }
+                </div>
+              }
+            </div>
+
+            {/* <input
+              type="file"
+              name="images"
+              accept="image/png, image/jpeg, image/jpg"
+              multiple  
               className="m-3 lg:m-5 shadow appearance-none border border-gray-300 rounded h-[300px] py-3 lg:py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Imagenes (ver como aplicar)"
-              onChange={(e) => {
-                setImages(e.target.value);
-                window.localStorage.setItem("images", [e.target.value]);
-              }}
-              value={images}
-            />
+              onChange={(e) => setRawImages(e.target.files)}
+              //value={images}
+            /> */}
 
             <select
               name="service"
