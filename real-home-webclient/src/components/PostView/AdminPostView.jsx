@@ -46,12 +46,11 @@ const AdminPostView = () => {
 
           :
 
-          <div className="h-full container mx-auto mt-[70px] p-8 bg-gray-200 rounded-lg shadow-lg">
+          <div className="h-full container mx-auto mt-[100px] mb-[30px] p-8 bg-gray-200 rounded-lg shadow-lg">
             {
               loading ? <p>Cargando...</p> :
                 <>
-                  <div className='w-full flex flex-row justify-between items-center'>
-                    <h2 className="h-fit text-3xl font-semibold mb-4">{post.title}</h2>
+                  <div className='w-full flex flex-row-reverse justify-between items-center'>
                     <button onClick={() => setClickedEdit(true)} className='rounded bg-red-300 p-5 m-4'>
                       Editar
                     </button>
@@ -66,6 +65,8 @@ const AdminPostView = () => {
                       ))
                     }
                   </section>
+
+                  <h2 className="h-fit text-3xl font-semibold mb-4">{post.title}</h2>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
