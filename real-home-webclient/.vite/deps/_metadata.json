@@ -1,41 +1,47 @@
 {
-  "hash": "0a060f2f",
-  "browserHash": "7885b60a",
+  "hash": "225f3d0e",
+  "browserHash": "3a0ca381",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "996ab79d",
+      "fileHash": "56346811",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "aa77f775",
+      "fileHash": "85d1b803",
       "needsInterop": true
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.js",
       "file": "react-router-dom.js",
-      "fileHash": "ea18f0ef",
+      "fileHash": "bb2c63a8",
       "needsInterop": false
     },
     "react-icons/hi": {
       "src": "../../node_modules/react-icons/hi/index.esm.js",
       "file": "react-icons_hi.js",
-      "fileHash": "ecef291f",
+      "fileHash": "aefd35df",
       "needsInterop": false
     },
     "react-router": {
       "src": "../../node_modules/react-router/dist/index.js",
       "file": "react-router.js",
-      "fileHash": "e6f3ff60",
+      "fileHash": "f946fe3a",
+      "needsInterop": false
+    },
+    "react-dropzone": {
+      "src": "../../node_modules/react-dropzone/dist/es/index.js",
+      "file": "react-dropzone.js",
+      "fileHash": "62e12830",
       "needsInterop": false
     },
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "c79b0cfb",
+      "fileHash": "96bfd9fa",
       "needsInterop": false
     }
   },

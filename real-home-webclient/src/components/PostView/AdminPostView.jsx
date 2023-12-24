@@ -1,15 +1,20 @@
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import WhatsAppIcon from '../../img/WhatsAppLogo.svg.png'
 import usePosts from '../../hooks/usePosts';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import CreatePost from '../AdminView/CreatePost';
+import { deleteOne } from '../../services/posts.service';
 
 const AdminPostView = () => {
   const { postId } = useParams();
   const { loading, getSinglePost, singlePost: post, toggleHidden } = usePosts();
+  const [clickedEdit, setClickedEdit] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getSinglePost(postId);
-  }, [postId, getSinglePost]);
+  }, [postId, getSinglePost, clickedEdit]);
 
   const handleContactUs = () => {
     const whatsappLink =
@@ -22,113 +27,131 @@ const AdminPostView = () => {
     toggleHidden(postId);
   }
 
-  const handleDelete = () => {
-    
+  const handleDelete = async () => {
+    await deleteOne(postId);
+
+    navigate("/AdminPostView/deleteConfirmation");
   }
 
   return (
-    <div className="container mx-auto mt-[90px] mb-10 p-8 bg-gray-200 rounded-lg shadow-lg">
-
+    <>
       {
-        loading ? <p>Cargando...</p> :
-        <>
-          <section className='flex flex-row items-center justify-center gap-7 mb-4'>
-            {
-              post.images?.map(image => (
-                <figure key={image} className='h-96 w-3/5 shadow-lg'>
-                  <img className="w-full h-full object-cover rounded-lg" src={image} alt='/' />
-                </figure>
-              ))
-            }
-          </section>
-
-          <h2 className="text-5xl font-RubikMonoOne mb-5 mt-5">{ post.title }</h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2">
-            
-            <div  className='flex mt-0 sm:order-1 md:order-1 lg:order-1'>
-              <p className='mr-2 mt-3 text-xl text-black font-bold uppercase font-spaceGrotesk'>Servicio:</p>
-              <p className='mt-3 text-xl text-[#ddc807] font-bold uppercase font-spaceGrotesk'>{ post.service }</p>
-            </div>
-
-             <div className="flex mt-4 sm:order-2 md:order-2 lg:order-2">
-                <p className="text-lg mr-2">Tipo de Propiedad:</p>
-                <p className="text-2xl font-bold uppercase text-[#042b5e]">{post.type}</p>
-              </div>
-
-            <div className="flex mt-4 sm:order-2 md:order-2 lg:order-2">
-              <p className="text-lg mr-2">Ubicacion:</p>
-              <p className="text-2xl text-[#042b5e] font-bold">{ post.location }</p>
-            </div>
-
-            <div className='flex mt-4 sm:order-3 md:order-3 lg:order-3'>
-              <p className="text-lg mr-2">Precio:</p>
-              <p className="text-2xl text-black font-bold ">${ post.price }</p>
-            </div>
-
-            <div className='flex mt-3 sm:order-4 md:order-4 lg:order-4'>
-              <p className="text-lg mr-2">Cuartos:</p>
-              <p className='text-2xl font-bold'>{ post.rooms }</p>
-            </div>
-
-            <div className='flex mb-2 mt-2 sm:order-5 md:order-5 lg:order-5'>
-              <p className="text-lg mr-2">Baños:</p>
-              <p className='text-2xl font-bold '>{ post.restrooms }</p>
-            </div>
-
-            <div className='flex sm:mb-6 sm:mt-2 lg:mt-0 lg:mb-0 lg:order-6'>
-              <p className="text-lg mr-2">Parqueos:</p>
-              <p className='text-2xl font-bold'>{ post.parking }</p>
-            </div>
-
-            <div className='flex mt-2 sm:order-7 md:order-7 lg:order-7'>
-              <p className="text-lg mr-2">Tamaño del terreno:</p>
-              <p className='text-xl font-bold'>{ post.terrainSize } Varas cuadradas</p>
-            </div>
-
-            <div className='flex mb-4 mt-3 sm:order-8 md:order-8 lg:order-8'>
-              <p className="text-lg mr-2">Tamaño de construccion total:</p>
-              <p className='text-xl font-bold'>{ post.constructionSize } varas cuadradas</p>
-            </div>
-
-            <div className='flex mt-1 sm:order-9 md:order-9 lg:order-9'>
-              <p className="text-lg mr-2">Contacto:</p>
-              <p className='text-2xl font-bold'>{ post.contact }</p>
-            </div>
-
-            <div className='flex sm:mt-4 md:mt-3 lg:mt-3 sm:order-10 md:order-10 lg:order-10'>
-              <p className="text-lg mr-2">Descripción:</p>
-              <p className="text-gray-700 font-bold text-xl">{ post.description }</p>
-            </div>       
+        clickedEdit ?
+          <div className='mt-20 flex flex-col items-center gap-4'>
+            <button onClick={() => setClickedEdit(false)} className='rounded bg-red-300 p-5 m-4'>
+              Salir de modo edicion
+            </button>
+            <CreatePost editMode={true} postId={postId} toEditPost={post}/>
           </div>
 
-          <div className='flex gap-4 mx-aut0 mt-4 mb-4'>
-              <button
-                onClick={handleContactUs}
-                className="text-lg font-bold bg-white border border-green-500 text-green-500 px-4 py-2 rounded-full transition duration-300 hover:bg-green-500 hover:text-white flex items-center"
-              >
-                <span className="mr-2">
-                  <img src={WhatsAppIcon} alt="WhatsApp Icon" className="w-6 h-6" />
-                </span>
-                WhatsApp
-              </button>
+          :
 
+          <div className="h-full container mx-auto mt-[70px] p-8 bg-gray-200 rounded-lg shadow-lg">
+            {
+              loading ? <p>Cargando...</p> :
+                <>
+                  <div className='w-full flex flex-row justify-between items-center'>
+                    <h2 className="h-fit text-3xl font-semibold mb-4">{post.title}</h2>
+                    <button onClick={() => setClickedEdit(true)} className='rounded bg-red-300 p-5 m-4'>
+                      Editar
+                    </button>
+                  </div>
+
+                  <section className='flex flex-row items-center justify-center gap-7 mb-4'>
+                    {
+                      post.images?.map(image => (
+                        <figure key={image} className='h-96 w-3/5 shadow-lg'>
+                          <img className="w-full h-full object-cover rounded-lg" src={image} alt='/' />
+                        </figure>
+                      ))
+                    }
+                  </section>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-lg font-bold mb-2">Descripción:</p>
+                      <p className="text-gray-700">{post.description}</p>
+                    </div>
+
+                    <div>
+                      <p className="text-lg font-bold mb-2">Precio:</p>
+                      <p>${post.price}</p>
+                    </div>
+
+                    <div>
+                      <p className="text-lg font-bold mb-2">Ubicacion:</p>
+                      <p>{post.location}</p>
+                    </div>
+
+                    <div>
+                      <p className="text-lg font-bold mb-2">Servicio:</p>
+                      <p>{post.service}</p>
+                    </div>
+
+                    <div>
+                      <p className="text-lg font-bold mb-2">Tipo de propiedad</p>
+                      <p>{post.type}</p>
+                    </div>
+
+                    <div>
+                      <p className="text-lg font-bold mb-2">Tamaño del terreno:</p>
+                      <p>{post.terrainSize} varas cuadradas</p>
+                    </div>
+
+                    <div>
+                      <p className="text-lg font-bold mb-2">Tamaño de construccion total:</p>
+                      <p>{post.constructionSize} varas cuadradas</p>
+                    </div>
+
+                    <div>
+                      <p className="text-lg font-bold mb-2">Cuartos:</p>
+                      <p>{post.rooms}</p>
+                    </div>
+
+                    <div>
+                      <p className="text-lg font-bold mb-2">Baños:</p>
+                      <p>{post.restrooms}</p>
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold mb-2">Parqueos:</p>
+                      <p>{post.parking}</p>
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold mb-2">Contacto:</p>
+                      <p>{post.contact}</p>
+                    </div>
+                    <div>
+                      <button
+                        onClick={handleContactUs}
+                        className="text-lg font-bold bg-white border border-green-500 text-green-500 px-4 py-2 rounded-full transition duration-300 hover:bg-green-500 hover:text-white flex items-center"
+                      >
+                        <span className="mr-2">
+                          <img src={WhatsAppIcon} alt="WhatsApp Icon" className="w-6 h-6" />
+                        </span>
+                        WhatsApp
+                      </button>
+                      <button onClick={handleVisibility} style={{
+                        background: post.hidden ? '#ddc807' : "rgb(34 197 94)"
+                      }} className='w-16 rounded-lg'>
+                        {post.hidden ? "Oculto" : "Visible"}
+                      </button>
+                      <button onClick={() => setIsDelete(true)} className='bg-rose-500 w-16 rounded-lg'>
+                        Eliminar Post
+                      </button>
+                    </div>
+                  </div>
+                </>
+            }
+            <section className={isDelete ? "ease-in duration-300 fixed text-gray-300 right-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex flex-col items-center justify-center gap-7 z-10" : "absolute top-0 h-screen right-[-100%] ease-in duration-500 z-10"}>
+              <p className='text-xl font-bold'>Esta seguro que desea eliminar el post?</p>
+              <div className='flex flex-row items-center justify-center gap-7'>
+                <button onClick={() => setIsDelete(false)} className='text-black rounded-xl bg-green-500 p-5 m-4'>Cancelar</button>
+                <button onClick={handleDelete} className='text-black rounded-xl bg-red-700 p-5 m-4'>Eliminar</button>
               </div>
-              <div className='flex gap-4 text-center'>
-
-              <button className='text-center font-bold py-1 px-4 rounded text-white' onClick={handleVisibility} style={{
-                background: post.hidden ? '#ddc807' : "rgb(34 197 94)" 
-              }}>
-                { post.hidden ? "Oculto" : "Visible" }
-              </button>
-              <button onClick={handleDelete} className='bg-rose-500 text-center font-bold py-1 px-4 rounded text-white'>
-                Eliminar Post
-              </button>
-
-              </div>
-        </>
+            </section>
+          </div>
       }
-    </div>
+    </>
   );
 }
 
