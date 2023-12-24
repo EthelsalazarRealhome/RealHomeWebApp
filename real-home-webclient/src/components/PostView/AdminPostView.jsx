@@ -1,13 +1,16 @@
-import { useParams } from 'react-router';
+import { Navigate, useNavigate, useParams } from 'react-router';
 import WhatsAppIcon from '../../img/WhatsAppLogo.svg.png'
 import usePosts from '../../hooks/usePosts';
 import { useEffect, useState } from 'react';
 import CreatePost from '../AdminView/CreatePost';
+import { deleteOne } from '../../services/posts.service';
 
 const AdminPostView = () => {
   const { postId } = useParams();
   const { loading, getSinglePost, singlePost: post, toggleHidden } = usePosts();
   const [clickedEdit, setClickedEdit] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getSinglePost(postId);
@@ -24,8 +27,10 @@ const AdminPostView = () => {
     toggleHidden(postId);
   }
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
+    await deleteOne(postId);
 
+    navigate("/AdminPostView/deleteConfirmation");
   }
 
   return (
@@ -41,7 +46,7 @@ const AdminPostView = () => {
 
           :
 
-          <div className="container mx-auto mt-[70px] p-8 bg-gray-200 rounded-lg shadow-lg">
+          <div className="h-full container mx-auto mt-[70px] p-8 bg-gray-200 rounded-lg shadow-lg">
             {
               loading ? <p>Cargando...</p> :
                 <>
@@ -130,13 +135,20 @@ const AdminPostView = () => {
                       }} className='w-16 rounded-lg'>
                         {post.hidden ? "Oculto" : "Visible"}
                       </button>
-                      <button onClick={handleDelete} className='bg-rose-500 w-16 rounded-lg'>
+                      <button onClick={() => setIsDelete(true)} className='bg-rose-500 w-16 rounded-lg'>
                         Eliminar Post
                       </button>
                     </div>
                   </div>
                 </>
             }
+            <section className={isDelete ? "ease-in duration-300 fixed text-gray-300 right-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex flex-col items-center justify-center gap-7 z-10" : "absolute top-0 h-screen right-[-100%] ease-in duration-500 z-10"}>
+              <p className='text-xl font-bold'>Esta seguro que desea eliminar el post?</p>
+              <div className='flex flex-row items-center justify-center gap-7'>
+                <button onClick={() => setIsDelete(false)} className='text-black rounded-xl bg-green-500 p-5 m-4'>Cancelar</button>
+                <button onClick={handleDelete} className='text-black rounded-xl bg-red-700 p-5 m-4'>Eliminar</button>
+              </div>
+            </section>
           </div>
       }
     </>

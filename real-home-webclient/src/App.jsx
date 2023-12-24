@@ -16,6 +16,7 @@ import Benefits from './components/Us/Benefits';
 import PostView from './components/PostView/PostView';
 import AdminPostView from './components/PostView/AdminPostView';
 import CreatePostError from './components/AdminView/CreatePostError';
+import DeleteConfirmation from './components/PostView/DeleteConfirmation';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
           <Route path='/Benefits' element={<Benefits/>} /> 
           <Route path='/PostView/:postId' element={<PostView/>} />
           <Route path='/AdminPostView/:postId' element={<AdminPostView/>} />
+          <Route path='/AdminPostView/deleteConfirmation' element={<DeleteConfirmation/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>
