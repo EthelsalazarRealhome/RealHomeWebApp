@@ -1,10 +1,9 @@
 import React from "react";
 import fondo from '../../img/services3.webp';
-import Footer from '../Footer';
 
 const OurServices = () => {
   return (
-    <div className="h-[85vh]">
+    <div className="">
       <div className="min-h-[800px] w-full">
         <div className="min-h-[800px] flex flex-col w-full">
           <img className="top-[64px] left-0 w-full h-[200px] object-cover mt-[64px]" src={fondo} alt="fondo" />

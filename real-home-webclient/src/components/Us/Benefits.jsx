@@ -7,7 +7,7 @@ import img5 from "../../img/ranchos/Pslmers.jpeg";
 
 const Benefits = () => {
     return(
-        <div className="mt-[64px]"> {/* Agrega este contenedor con un margen superior de 64 píxeles */}
+        <div className="mt-[64px]"> 
         <div className="max-w-[1400px] m-auto py-2 px-4 grid lg:grid-cols-2 gap-4">
                 {/*left side*/}
                 <div className="grid grid-cols-2 grid-rows-6 h-auto">
@@ -34,3 +34,4 @@ const Benefits = () => {
 }
 
 export default Benefits;
+

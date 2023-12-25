@@ -24,11 +24,16 @@ const Home = () => {
     };
 
     const handleOurServices = () => {
+        console.log('Our Services button clicked');
         navigate("/OurServices");
     };
 
     const handleTeam = () => {
         navigate("/Team");
+    };
+
+    const handleMoreinfo = () => {
+        navigate("/Moreinfo");
     };
 
 
@@ -53,10 +58,10 @@ const Home = () => {
             </div>
 
             <div className="max-w-[900px] m-auto px-4 py-12 flex flex-wrap justify-between">
-                <button onClick={handleOurServices} className="text-xl font-bold text-gray-700">Nuestros Servicios </button>
-                <button onClick={handleTeam} className="text-xl font-bold text-gray-700">Quienes Somos/Nuestro Equipo</button>
-                <p className="text-xl font-bold text-gray-700">Conoce mas sobre nosotros!</p>
-            </div>
+                <button onClick={handleOurServices} className="text-xl font-bold text-gray-700 bg-[#ddc807] rounded p-4">Nuestros Servicios </button>
+                <button onClick={handleTeam} className="text-xl bg-[#042b5e] rounded p-4 text-white font-bold">Quienes Somos/Nuestro Equipo</button>
+                <button onClick={handleMoreinfo} className="text-xl font-bold text-gray-700 bg-[#ddc807] rounded p-4">Conoce mas sobre nosotros!</button>
+            </div>      
 
             <div className="max-w-[1400px] m-auto py-2 px-4 grid lg:grid-cols-2 gap-4">
                 {/*left side*/}
@@ -74,7 +79,7 @@ const Home = () => {
                     <p className="pb-6">Transparencia y Confianza: Información clara y transparente en todo el proceso, garantizando que estés completamente informado en cada etapa de la transacción.
                         Facilidad en la Gestión: Asistencia en todo el proceso de compra, desde la selección hasta el cierre, para que puedas enfocarte en encontrar tu hogar ideal mientras nosotros nos encargamos de los detalles.</p>
                     <div>
-                        <button onClick={handleGoProperties} className="border py-2 px-3 rounded-full bg-white text-black border-black mr-4 hover:shadow-xl"> Conoce mas</button>
+                        <button onClick={handleGoProperties} className="border py-2 px-3 rounded-full bg-[#042b5e] text-white font-bold text-2xl hover:text-white hover:bg-[#ddc807] border-black mr-4 hover:shadow-xl">Conoce mas sobre nuestros ranchos disponibles!</button>
                     </div>
                 </div>
             </div>
@@ -86,7 +91,7 @@ const Home = () => {
                         <p className="mb-8 tracking-wide font-semibold font-anton text-black text-xl"> Obtén orientación individualizada para preparar y presentar tu propiedad de manera atractiva en el mercado, destacando sus mejores características y valor.
                         </p>
                         <div>
-                            <a href="https://api.whatsapp.com/send?phone=%2B50378287736&data=ARBdc2tNAjVnLT0Tg_YPi0WgleGqbrv1e77VyM9PaQc1UEQBZzvdVWqB533gILDdyCvR-brfwVDmWvMjtEr98UeBnElA9PJaEtuf6h7On7Lu_xarA3AHU0OVpclr5jVFnX2sp4y8u7F_oeuKmRkV9TktJg&source=FB_Page&app=facebook&entry_point=page_cta';"
+                            <a href="https://wa.link/53yqsh"
                                 className="inline-flex items-center px-3 py-3 text-white transition-all duration-300 ease-in-out rounded-md 2xl:px-6 2xl:py-3 bg-green-500 hover:bg-white hover:text-green-600">
                                 <span className="pr-4 font-semibold tracking-wide">Contactanos!</span>
                                 <img src={phonesvg} alt="phone icon" className="w-6 h-6 mr-2" />

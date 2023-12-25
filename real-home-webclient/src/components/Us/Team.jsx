@@ -3,7 +3,7 @@ import foto from "../../img/logos/logoblue.jpg";
 
 const Team = () => {
   return (
-    <div className="h-[85vh]">
+    <div className="">
     <div className="min-h-screen w-full">
       <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
         <div className="w-full lg:w-1/2 p-8">
