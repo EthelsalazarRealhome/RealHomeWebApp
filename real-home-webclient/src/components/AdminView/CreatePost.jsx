@@ -152,7 +152,7 @@ const CreatePost = ({ editMode = false, postId = null, toEditPost = {} }) => {
                     <textarea
                       name="description"
                       rows="4" cols="50"
-                      maxLength={500}
+                      maxLength={1500}
                       required
                       className="resize-none px-4 py-4 w-full h-full text-gray-700 text-l bg-inherit border-2 rounded border-gray-300 border-opacity-50 outline-none hover:border-gray-600 focus:border-blue-500 focus:text-gray-700 transition duration-200 peer"
                       onChange={(e) => {

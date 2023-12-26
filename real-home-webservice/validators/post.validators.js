@@ -17,7 +17,7 @@ validators.createPostValidator = [
   
   body("description")
     .notEmpty().withMessage("Description is required")
-    .isLength({ max: 500 }).withMessage("Description max length is 500 characters"),
+    .isLength({ max: 1500 }).withMessage("Description max length is 1500 characters"),
   
   body("price")
     .notEmpty().withMessage("Price is required")
