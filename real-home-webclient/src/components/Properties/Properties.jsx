@@ -4,16 +4,26 @@ import usePosts from "../../hooks/usePosts";
 import Posts from "../Posts/Posts";
 
 const Properties = () => {
-  const [selectedFilter, setSelectedFilter] = useState("");
+  const [selectedFilter, setSelectedFilter] = useState({
+    type: "",
+    service: ""
+  });
   const { posts, getPosts, loading } = usePosts();
 
   useEffect(() => {
     getPosts();
   }, [getPosts]);
 
-  const handleFilterSelect = (value) => {
-    setSelectedFilter(value);
-  };
+  const filterProperties = (posts) => {
+    return posts.filter(post => {
+      return (
+        (selectedFilter.type !== "" ? (post.type === selectedFilter.type) : post.type) &&
+        (selectedFilter.service !== "" ? (post.service === selectedFilter.service) : post.service)
+      );
+    })
+  }
+
+  const filteredPosts = filterProperties(posts);
 
   return (
     <section>
@@ -21,11 +31,11 @@ const Properties = () => {
         <h2 className="text-3xl font-bold mb-6 sm:mb-3 mt-[70px] font-merriweather">
           NUESTRAS PROPIEDADES DISPONIBLES
         </h2>
-        <Filter onSelect={handleFilterSelect} className="mb-[80px]" />
+        <Filter setFilter={setSelectedFilter} className="mb-[80px]" />
       </div>
 
       {
-        loading ? <p>Cargando propiedades...</p> : <Posts posts={posts}/>
+        loading ? <p>Cargando propiedades...</p> : <Posts posts={filteredPosts} />
       }
       
     </section>

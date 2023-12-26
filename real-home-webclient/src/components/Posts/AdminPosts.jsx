@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function AdminPosts ({ posts=[] }) {
   console.log(posts);
   return (
-    <ul className="mx-[50px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-4">
+    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-4">
       { 
         posts?.map(post => (
           <li key={post._id} className="max-w-md bg-gray-100 rounded-md overflow-hidden shadow-md p-2 cursor-pointer">
