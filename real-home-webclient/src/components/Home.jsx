@@ -36,6 +36,11 @@ const Home = () => {
         navigate("/Moreinfo");
     };
 
+    const handleContactUsMessage = () => {
+        const message = 'https://wa.link/53yqsh';
+
+        window.open(message, '_blank')
+    };
 
     return (
         <div>
@@ -91,7 +96,7 @@ const Home = () => {
                         <p className="mb-8 tracking-wide font-semibold font-anton text-black text-xl"> Obtén orientación individualizada para preparar y presentar tu propiedad de manera atractiva en el mercado, destacando sus mejores características y valor.
                         </p>
                         <div>
-                            <a href="https://wa.link/53yqsh"
+                            <a onClick={handleContactUsMessage}
                                 className="inline-flex items-center px-3 py-3 text-white transition-all duration-300 ease-in-out rounded-md 2xl:px-6 2xl:py-3 bg-green-500 hover:bg-white hover:text-green-600">
                                 <span className="pr-4 font-semibold tracking-wide">Contactanos!</span>
                                 <img src={phonesvg} alt="phone icon" className="w-6 h-6 mr-2" />

@@ -55,14 +55,14 @@ const AdminPostView = () => {
           ) : (
             <>
               <div className="w-full flex flex-row-reverse gap-4">
+              <button onClick={() => setIsDelete(true)} className="bg-rose-500 rounded text-2xl font-bold py-2 px-4 m-4 text-white">
+                  Eliminar 
+                </button>
                 <button onClick={() => setClickedEdit(true)} className="rounded hover:bg-white hover:text-black hover:border-black text-white font-bold  text-2xl bg-[#042b5e] py-2 px-4 m-4">
                   Editar
                 </button>
                 <button onClick={handleVisibility} style={{ background: post.hidden ? '#ddc807' : 'rgb(34 197 94)',}} className="rounded text-2xl font-bold py-2 px-4 m-4 text-white">
                   {post.hidden ? 'Oculto' : 'Visible'}
-                </button>
-                <button onClick={() => setIsDelete(true)} className="bg-rose-500 rounded text-2xl font-bold py-2 px-4 m-4 text-white">
-                  Eliminar Post
                 </button>
               </div>
 
