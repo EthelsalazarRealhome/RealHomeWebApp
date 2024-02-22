@@ -23,7 +23,7 @@ function App() {
   return (
     <>
     <UserContextProvider>
-      <BrowserRouter>
+      <BrowserRouter> 
       <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />

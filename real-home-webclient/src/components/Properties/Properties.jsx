@@ -27,8 +27,8 @@ const Properties = () => {
 
   return (
     <section>
-      <div className="max-w-7xl mx-10 md:mx-6 sm:mx-2 mt-5 p-4">
-        <h2 className="text-3xl font-bold mb-6 sm:mb-3 mt-[70px] font-merriweather">
+      <div className="max-w-7xl lg:mx-10 mx-0 md:mx-6 sm:mx-2 mt-5 p-4">
+        <h2 className="lg:text-3xl text-xl px-0 font-bold mb-6 sm:mb-3 mt-[70px] font-merriweather">
           NUESTRAS PROPIEDADES DISPONIBLES
         </h2>
         <Filter setFilter={setSelectedFilter} className="mb-[80px]" />
@@ -37,7 +37,7 @@ const Properties = () => {
       {
         loading ? <p>Cargando propiedades...</p> : <Posts posts={filteredPosts} />
       }
-      
+
     </section>
 
   );

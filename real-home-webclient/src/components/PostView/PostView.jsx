@@ -7,7 +7,8 @@ import roomsvg from '../../img/postsvgs/room.svg';
 import bathroomsvg from '../../img/postsvgs/bathroom.svg';
 import sizesvg from '../../img/postsvgs/size.svg';
 import phonesvg from '../../img/postsvgs/phone.svg.png';
-import propertie1 from '../../img/prueba1.jpeg'
+import propertie1 from '../../img/prueba1.jpeg';
+import ImgSlider from '../PostView/ImgSlider';
 
 const PostView = () => {
   const { postId } = useParams();
@@ -32,15 +33,20 @@ const PostView = () => {
           <p>Cargando...</p>
         ) : (
           <>
-            
 
-            <section className='flex flex-row items-center justify-center gap-7 mb-4'>
+          <div>
+          <ImgSlider />
+          </div>
+
+          {/*
+          <section className='flex flex-row items-center justify-center gap-7 mb-4'>
               {post.images?.map(image => (
                 <figure key={image} className='sm:w-full md:w-1/2 lg:w-1/3 h-96 shadow-lg'>
                   <img className="w-full h-full object-cover rounded-lg" src={image} alt='/' />
                 </figure>
               ))}
-            </section>
+          </section>
+          */}
 
             <h2 className="text-5xl font-RubikMonoOne font-bold mb-5 mt-5">{post.title}</h2>
 
@@ -141,7 +147,7 @@ const PostView = () => {
             </p>
             <div>
               <a href="https://wa.link/53yqsh"
-              className="inline-flex items-center px-3 py-3 text-white transition-all duration-300 ease-in-out rounded-md 2xl:px-6 2xl:py-3 bg-green-500 hover:bg-white hover:text-green-600">
+                className="inline-flex items-center px-3 py-3 text-white transition-all duration-300 ease-in-out rounded-md 2xl:px-6 2xl:py-3 bg-green-500 hover:bg-white hover:text-green-600">
                 <span className="pr-4 font-semibold tracking-wide">Contactanos!</span>
                 <img src={phonesvg} alt="phone icon" className="w-6 h-6 mr-2" />
               </a>

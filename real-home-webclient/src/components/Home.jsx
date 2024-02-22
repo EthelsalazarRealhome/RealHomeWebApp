@@ -7,7 +7,8 @@ import img4 from "../img/ranchos/rncho.jpeg";
 import img5 from "../img/ranchos/Pslmers.jpeg";
 import { useNavigate } from "react-router-dom";
 import propertie1 from '../img/prueba1.jpeg'
-import phonesvg from '../img/postsvgs/phone.svg.png'
+import phonesvg from '../img/postsvgs/phone.svg.png'       
+
 const Home = () => {
 
     const navigate = useNavigate();
@@ -108,7 +109,6 @@ const Home = () => {
                     </div>
                 </section>
             </div>
-
         </div>
     )
 }
