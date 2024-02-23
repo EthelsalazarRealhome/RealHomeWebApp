@@ -59,7 +59,7 @@ const NavBar = () => {
 
           <section className={nav ? "ease-in duration-300 fixed text-gray-300 right-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-10" : "absolute top-0 h-screen right-[-100%] ease-in duration-500 z-10"}>
             {
-              (isLogged && user?.roles?.includes(ROLES.ADMIN || ROLES.SYSADMIN)) ? <AdminMenu closeNav={closeNav} /> : <UserMenu closeNav={closeNav} />
+              (isLogged && (user?.roles?.includes(ROLES.ADMIN) || user?.roles?.includes(ROLES.SYSADMIN))) ? <AdminMenu closeNav={closeNav} /> : <UserMenu closeNav={closeNav} />
             }
           </section>
         </div>

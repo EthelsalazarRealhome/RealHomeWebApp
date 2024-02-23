@@ -1,47 +1,53 @@
 {
-  "hash": "225f3d0e",
-  "browserHash": "3a0ca381",
+  "hash": "d960031d",
+  "browserHash": "65570073",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "56346811",
+      "fileHash": "95860283",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "85d1b803",
+      "fileHash": "3198db4e",
       "needsInterop": true
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.js",
       "file": "react-router-dom.js",
-      "fileHash": "bb2c63a8",
+      "fileHash": "e5edc3ea",
       "needsInterop": false
     },
     "react-icons/hi": {
       "src": "../../node_modules/react-icons/hi/index.esm.js",
       "file": "react-icons_hi.js",
-      "fileHash": "aefd35df",
+      "fileHash": "dea36c1d",
       "needsInterop": false
     },
     "react-router": {
       "src": "../../node_modules/react-router/dist/index.js",
       "file": "react-router.js",
-      "fileHash": "f946fe3a",
+      "fileHash": "580fc02a",
       "needsInterop": false
     },
     "react-dropzone": {
       "src": "../../node_modules/react-dropzone/dist/es/index.js",
       "file": "react-dropzone.js",
-      "fileHash": "62e12830",
+      "fileHash": "2b8aeacd",
       "needsInterop": false
     },
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "96bfd9fa",
+      "fileHash": "1ee9bbb0",
+      "needsInterop": false
+    },
+    "react-icons/bs": {
+      "src": "../../node_modules/react-icons/bs/index.esm.js",
+      "file": "react-icons_bs.js",
+      "fileHash": "793bf1f1",
       "needsInterop": false
     }
   },
@@ -51,6 +57,9 @@
     },
     "chunk-M776IWBH": {
       "file": "chunk-M776IWBH.js"
+    },
+    "chunk-LPTIXN44": {
+      "file": "chunk-LPTIXN44.js"
     },
     "chunk-FQO5W7GE": {
       "file": "chunk-FQO5W7GE.js"
