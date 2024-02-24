@@ -38,14 +38,10 @@ const CreatePost = ({ editMode = false, postId = null, toEditPost = {} }) => {
     let imgPrevs = [];
 
     for (const acceptedFile of acceptedFiles) {
-      const file = new FileReader;
-
-      file.readAsDataURL(acceptedFile);
-
-      file.onload = () => {
-        imgPrevs.push(file.result);
-      }
-
+      imgPrevs.push({
+        name: acceptedFile.name,
+        url: URL.createObjectURL(acceptedFile)
+      });
     }
 
     setPreview(imgPrevs);
@@ -180,8 +176,8 @@ const CreatePost = ({ editMode = false, postId = null, toEditPost = {} }) => {
                       <div className="p-4 flex flex-row flex-wrap items-center justify-center gap-4">
                         {
                           preview?.map(img => (
-                            <figure key={img} className="h-36 w-36 shadow-lg">
-                              <img src={img} className="w-full h-full object-cover rounded-lg" />
+                            <figure key={img.name} className="h-36 w-36 shadow-lg">
+                              <img src={img.url} className="w-full h-full object-cover rounded-lg" />
                             </figure>
                           ))
                         }
