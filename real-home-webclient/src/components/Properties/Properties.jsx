@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import Filter from './Filter/Filter';
 import usePosts from "../../hooks/usePosts";
 import Posts from "../Posts/Posts";
+import { useLocation } from "react-router-dom"; 
 
 const Properties = () => {
+  const location = useLocation();
   const [selectedFilter, setSelectedFilter] = useState({
-    type: "",
+    type: location.state ? location.state.from : "",
     service: ""
   });
   const { posts, getPosts, loading } = usePosts();

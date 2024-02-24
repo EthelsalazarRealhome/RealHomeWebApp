@@ -5,7 +5,7 @@ import img2 from "../img/ranchos/pisicin.jpeg";
 import img3 from "../img/ranchos/visti.jpeg";
 import img4 from "../img/ranchos/rncho.jpeg";
 import img5 from "../img/ranchos/Pslmers.jpeg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import propertie1 from '../img/prueba1.jpeg'
 import phonesvg from '../img/postsvgs/phone.svg.png'       
 
@@ -85,7 +85,9 @@ const Home = () => {
                     <p className="pb-6">Transparencia y Confianza: Información clara y transparente en todo el proceso, garantizando que estés completamente informado en cada etapa de la transacción.
                         Facilidad en la Gestión: Asistencia en todo el proceso de compra, desde la selección hasta el cierre, para que puedas enfocarte en encontrar tu hogar ideal mientras nosotros nos encargamos de los detalles.</p>
                     <div>
-                        <button onClick={handleGoProperties} className="border py-2 px-3 rounded-full bg-[#042b5e] text-white font-bold text-2xl hover:text-white hover:bg-[#ddc807] border-black mr-4 hover:shadow-xl">Conoce mas sobre nuestros ranchos disponibles!</button>
+                        <Link to="/Properties" state={{ from: "playa" }} className="border py-2 px-3 rounded-full bg-[#042b5e] text-white font-bold text-2xl hover:text-white hover:bg-[#ddc807] border-black mr-4 hover:shadow-xl">Conoce mas sobre nuestros ranchos disponibles!</Link>
+
+                        {/* <button onClick={handleGoProperties} className="border py-2 px-3 rounded-full bg-[#042b5e] text-white font-bold text-2xl hover:text-white hover:bg-[#ddc807] border-black mr-4 hover:shadow-xl">Conoce mas sobre nuestros ranchos disponibles!</button> */}
                     </div>
                 </div>
             </div>
