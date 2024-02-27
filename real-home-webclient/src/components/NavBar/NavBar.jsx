@@ -39,7 +39,7 @@ const NavBar = () => {
       <nav className="absolute w-full flex mt-[0px] justify-between p-4 items-center bg-black/20">
         <NavLink to={to} onClick={closeNav}>
           <h1
-            className=" text-white font-bold text-2xl z-20"> Real State</h1>
+            className=" text-white font-bold text-2xl z-20"> REAL HOME</h1>
         </NavLink>
 
         <div className='flex flex-row gap-7 z-10'>

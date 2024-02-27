@@ -30,7 +30,7 @@ const Properties = () => {
   return (
     <section>
       <div className="max-w-7xl lg:mx-10 mx-0 md:mx-6 sm:mx-2 mt-5 p-4">
-        <h2 className="lg:text-3xl text-xl px-0 font-bold mb-6 sm:mb-3 mt-[70px] font-merriweather">
+        <h2 className="lg:text-5xl text-2xl px-0 font-bold mb-6 sm:mb-3 mt-[70px] font-merriweather">
           NUESTRAS PROPIEDADES DISPONIBLES
         </h2>
         <Filter setFilter={setSelectedFilter} className="mb-[80px]" />

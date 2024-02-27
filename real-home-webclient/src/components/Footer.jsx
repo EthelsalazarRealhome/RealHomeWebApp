@@ -1,12 +1,15 @@
 import React from "react";
+import piefoto from '../img/logos/pie.png';
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="flex flex-col-reverse items-center justify-around h-48 text-white bg-gray-200 md:flex-row md:h-36"
+    <footer className="mt-auto">
+      <div className="flex flex-col items-center justify-around h-48 text-white bg-gray-200 md:flex-row md:h-36"
         style={{ backgroundColor: "#042b5e", color: "white" }}>
 
-        <p className="px-4 text-center text-white md:px-0 md:text-left"> Ethel Salazar-RealHome ©.</p>
+        <img src={piefoto} alt="" />
+
+
         <div className="flex items-center space-x-10">
           <ul className="flex space-x-6">
             <li>
@@ -26,10 +29,19 @@ const Footer = () => {
             </li>
             <li>
               <a href="https://www.facebook.com/profile.php?id=100076995453710" className="block text-white transition duration-300 ease-in-out hover:text-gray-500" rel="nofollow noreferrer noopener" target="_blank"><svg className="w-5 h-5" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 10C20 4.477 15.523 0 10 0C4.477 0 0 4.477 0 10C0 14.991 3.657 19.128 8.438 19.878V12.891H5.898V10H8.438V7.797C8.438 5.291 9.93 3.907 12.215 3.907C13.309 3.907 14.453 4.102 14.453 4.102V6.562H13.193C11.95 6.562 11.563 7.333 11.563 8.124V10H14.336L13.893 12.89H11.563V19.878C16.343 19.128 20 14.991 20 10Z" fill="currentColor"></path></svg></a></li></ul>
+                <path d="M20 10C20 4.477 15.523 0 10 0C4.477 0 0 4.477 0 10C0 14.991 3.657 19.128 8.438 19.878V12.891H5.898V10H8.438V7.797C8.438 5.291 9.93 3.907 12.215 3.907C13.309 3.907 14.453 4.102 14.453 4.102V6.562H13.193C11.95 6.562 11.563 7.333 11.563 8.124V10H14.336L13.893 12.89H11.563V19.878C16.343 19.128 20 14.991 20 10Z" fill="currentColor"></path></svg></a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@realhome.ethelsalazar?_t=8kDVfxs2ri2&_r=1" className="block text-white transition duration-300 ease-in-out hover:text-gray-500" rel="nofollow noreferrer noopener" target="_blank">
+                <svg fill="#000000" width="20px" height="25px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M224,80a52.059,52.059,0,0,1-52-52,4.0002,4.0002,0,0,0-4-4H128a4.0002,4.0002,0,0,0-4,4V156a24,24,0,1,1-34.28418-21.69238,3.99957,3.99957,0,0,0,2.28369-3.61279L92,89.05569a3.99948,3.99948,0,0,0-4.70117-3.938A72.00522,72.00522,0,1,0,172,156l-.00049-42.56348A99.27749,99.27749,0,0,0,224,128a4.0002,4.0002,0,0,0,4-4V84A4.0002,4.0002,0,0,0,224,80Zm-4,39.915a91.24721,91.24721,0,0,1-49.66455-17.1792,4.00019,4.00019,0,0,0-6.33594,3.24707L164,156A64,64,0,1,1,84,94.01223l-.00049,34.271A32.00156,32.00156,0,1,0,132,156V32h32.13184A60.09757,60.09757,0,0,0,220,87.86819Z" />
+                </svg>
+              </a>
+            </li>
+
+          </ul>
         </div>
       </div>
-
     </footer>
   );
 };

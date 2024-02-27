@@ -7,7 +7,9 @@ import img4 from "../img/ranchos/rncho.jpeg";
 import img5 from "../img/ranchos/Pslmers.jpeg";
 import { Link, useNavigate } from "react-router-dom";
 import propertie1 from '../img/prueba1.jpeg'
-import phonesvg from '../img/postsvgs/phone.svg.png'       
+import phonesvg from '../img/postsvgs/phone.svg.png'
+import Video from '../components/Video'
+import Footer from '../components/Footer'
 
 const Home = () => {
 
@@ -25,7 +27,6 @@ const Home = () => {
     };
 
     const handleOurServices = () => {
-        console.log('Our Services button clicked');
         navigate("/OurServices");
     };
 
@@ -45,13 +46,14 @@ const Home = () => {
 
     return (
         <div>
+        <div>
             <div className="w-full h-full">
 
                 <img className="top-0 left-0 w-full h-[750px] object-cover" src={fondo} alt="fondo" />
                 <div className="bg-black/30 absolute top-0 left-0 w-full h-[750px]" />
                 <div className="absolute top-0 w-full h-full flex flex-col justify-center text-white">
                     <div className="md:left-[10%] max-w-[1100px] m-auto absolute p-4">
-                        <p className="font-bolder py-4">Encuentra tu lugar perfecto </p>
+                        <p className="font-bolder text-2xl py-4">Tenemos lo que necesitas!</p>
                         <h1 className="font-bold text-5xl md:text-7xl drop-shadow-2xl">Ethel Salazar-Real Home</h1>
                         <p className="max-w-[600px] drop-shadow-2xl py-2 text-xl mt-1"> Bienvenido a Real Home, donde convertimos sueños en hogares y necesidades en realidades. Somos más que una empresa de bienes raíces, somos constructores de experiencias habitables. Con un equipo de expertos dedicados a superar expectativas, ofrecemos un servicio excepcional, transparente y personalizado para cada cliente.</p>
                         <button className="mt-1 border py-2 px-3 rounded-full mr-2 bg-white text-black"
@@ -63,11 +65,13 @@ const Home = () => {
 
             </div>
 
-            <div className="max-w-[900px] m-auto px-4 py-12 flex flex-wrap justify-between">
-                <button onClick={handleOurServices} className="text-xl font-bold text-gray-700 bg-[#ddc807] rounded p-4">Nuestros Servicios </button>
-                <button onClick={handleTeam} className="text-xl bg-[#042b5e] rounded p-4 text-white font-bold">Quienes Somos/Nuestro Equipo</button>
-                <button onClick={handleMoreinfo} className="text-xl font-bold text-gray-700 bg-[#ddc807] rounded p-4">Conoce mas sobre nosotros!</button>
-            </div>      
+            <div className="mt-5 mb-4 bg-[#042b5e]">
+                <div className="max-w-[900px] m-auto px-4 py-3 flex flex-wrap justify-between">
+                    <button onClick={handleOurServices} className="text-xl font-bold text-gray-700 bg-[#ddc807] rounded p-4">Nuestros Servicios </button>
+                    <button onClick={handleTeam} className="text-xl bg-[#042b5e] rounded p-4 text-white font-bold">Quienes Somos/Nuestro Equipo</button>
+                    <button onClick={handleMoreinfo} className="text-xl font-bold text-gray-700 bg-[#ddc807] rounded p-4">Conoce mas sobre nosotros!</button>
+                </div>
+            </div>
 
             <div className="max-w-[1400px] m-auto py-2 px-4 grid lg:grid-cols-2 gap-4">
                 {/*left side*/}
@@ -85,12 +89,22 @@ const Home = () => {
                     <p className="pb-6">Transparencia y Confianza: Información clara y transparente en todo el proceso, garantizando que estés completamente informado en cada etapa de la transacción.
                         Facilidad en la Gestión: Asistencia en todo el proceso de compra, desde la selección hasta el cierre, para que puedas enfocarte en encontrar tu hogar ideal mientras nosotros nos encargamos de los detalles.</p>
                     <div>
-                        <Link to="/Properties" state={{ from: "playa" }} className="border py-2 px-3 rounded-full bg-[#042b5e] text-white font-bold text-2xl hover:text-white hover:bg-[#ddc807] border-black mr-4 hover:shadow-xl">Conoce mas sobre nuestros ranchos disponibles!</Link>
-
-                        {/* <button onClick={handleGoProperties} className="border py-2 px-3 rounded-full bg-[#042b5e] text-white font-bold text-2xl hover:text-white hover:bg-[#ddc807] border-black mr-4 hover:shadow-xl">Conoce mas sobre nuestros ranchos disponibles!</button> */}
+                        <Link to="/Properties" state={{ from: "playa" }} className="text-2xl md:text-xl lg:text-2xl border py-2 px-3 rounded-full bg-[#042b5e] text-white font-bold hover:text-white hover:bg-[#ddc807] border-black mr-4 hover:shadow-xl">
+                            <span className="hidden lg:inline">Conoce mas sobre nuestros ranchos disponibles!</span>
+                            <span className="sm:inline lg:hidden">Quiero conocer mas!</span>
+                        </Link>
                     </div>
                 </div>
             </div>
+            
+            <hr></hr>
+
+            <div className="flex flex-col justify-center items-center max-w-screen-md w-full p-5 mx-auto">
+                <p className="mb-5 font-merriweather text-4xl font-bold"></p>
+                <Video />
+            </div>
+
+            <hr></hr>
 
             <div className='mt-12 mb-10 flex items-center justify-center'>
                 <section className="flex flex-col w-[1600px] h-full lg:flex-row lg:h-96">
@@ -112,6 +126,7 @@ const Home = () => {
                 </section>
             </div>
         </div>
+    </div>
     )
 }
 
