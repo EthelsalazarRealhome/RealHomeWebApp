@@ -1,4 +1,3 @@
-
 import { NavLink } from "react-router-dom";
 
 function Posts({ posts = [] }) {
@@ -13,14 +12,14 @@ function Posts({ posts = [] }) {
               <div className="flex-grow p-4 flex flex-col">
                 <div className="flex mb-2">
                   <div className="w-[50%] pr-2">
-                    <p className="text-3xl font-semibold mb-2 font-anton">{post.title}</p>
+                    <p className="text-xl sm:text-base md:text-lg lg:text-3xl xl:text-2xl font-semibold mb-2 font-anton">{post.title}</p>
                     <p className="text-lg font-bold text-green-500 mb-2">
                       Precio: ${post.price}
                     </p>
                   </div>
-                  <div className="w-[50%] pl-2">
-                    <p className="bg-[#ddc807] text-center rounded-md text-white font-bold text-xl mb-2">{post.service}</p>
-                    <p className="bg-[#042b5e] text-center rounded-md text-white font-semibold text-xl">{post.type}</p>
+                  <div className="w-[70%] inline-block pl-2">
+                    <p className="bg-[#ddc807] text-center rounded-md text-white font-semibold text-base mb-2">{post.service}</p>
+                    <p className="bg-[#042b5e] text-center rounded-md text-white font-semibold text-base">{post.type}</p>
                   </div>
                 </div>
               </div>

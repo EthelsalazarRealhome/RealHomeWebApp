@@ -1,11 +1,7 @@
-import { useParams } from 'react-router';
+import React, { useEffect } from 'react';
 import WhatsAppIcon from '../../img/WhatsAppLogo.svg.png';
 import usePosts from '../../hooks/usePosts';
-import { useEffect } from 'react';
-import parkingsvg from '../../img/postsvgs/parked-car.svg';
-import roomsvg from '../../img/postsvgs/room.svg';
-import bathroomsvg from '../../img/postsvgs/bathroom.svg';
-import sizesvg from '../../img/postsvgs/size.svg';
+import { useParams } from 'react-router-dom';
 import phonesvg from '../../img/postsvgs/phone.svg.png';
 import propertie1 from '../../img/prueba1.jpeg';
 import ImgSlider from '../PostView/ImgSlider';
@@ -16,6 +12,7 @@ const PostView = () => {
 
   useEffect(() => {
     getSinglePost(postId);
+    window.scrollTo(0, 0);
   }, [postId, getSinglePost]);
 
   const handleContactUs = () => {
@@ -25,76 +22,54 @@ const PostView = () => {
     window.open(whatsappLink, '_blank');
   };
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div>
+      <button
+        className="mt-16 md:mt-8 lg:mt-12 text-xl md:text-2xl font-bold bg-[#042b5e] border border-[#ddc807] text-white px-4 md:px-6 py-2 md:py-4 rounded-full transition duration-300 hover:bg-[#ddc807] hover:border-[#042b5e] hover:text-black flex items-center fixed top-4 md:top-8 left-4 md:left-8"
+        onClick={handleGoBack}
+      >
+        <span className="mr-2 flex-shrink-0">
+          &larr;
+        </span>
+        <span className="flex-shrink-0">
+          Return
+        </span>
+      </button>
+
       <div className="container mx-auto mt-16 p-8 lg:p-16">
         {loading ? (
           <p className="h-screen">Cargando...</p>
         ) : (
           <>
-            <div className="flex flex-col lg:flex-row">
+            <div className="flex flex-col lg:flex-row mt-8 md:mt-12 lg:mt-16">
               <ImgSlider images={post.images} />
               <div className="lg:ml-8">
-
                 <h2 className="text-4xl lg:text-5xl font-RubikMonoOne font-bold mb-2 lg:mb-5 mt-5">{post.title}</h2>
                 <p className="mt-2 text-2xl font-spaceGrotesk">{post.location}</p>
-
                 <p className="mt-6 text-3xl lg:text-4xl text-black font-bold">Precio: ${post.price}</p>
-
                 <p className='mt-12 text-3xl  text-[#ddc807] uppercase font-spaceGrotesk'>{post.service}</p>
-
                 <div className='flex mt-12'>
                   <p className="text-2xl uppercase ">Tipo de Propiedad:</p>
                   <p className="ml-2 text-2xl font-spaceGrotesk uppercase">{post.type}</p>
                 </div>
-
-                <div className='mt-12 flex'>
-                  <img src={roomsvg} alt="room icon" className="w-6 h-6 mr-2" />
-                  <p className="text-lg  mr-2">Cuartos:</p>
-                  <p className='text-2xl font-bold'>{post.rooms}</p>
-                </div>
-
-                <div className='mt-1 flex'>
-                  <img src={bathroomsvg} alt="bathroom icon" className="w-6 h-6 mr-2" />
-                  <p className="text-lg mr-2">Baños:</p>
-                  <p className='text-2xl font-bold '>{post.restrooms}</p>
-                </div>
-
-                <div className='mt-1 flex'>
-                  <img src={parkingsvg} alt="Parking icon" className="w-6 h-6 mr-2" />
-                  <p className="text-lg mr-2">Parqueos:</p>
-                  <p className='text-2xl font-bold'>{post.parking}</p>
-                </div>
-
-                <div className='mt-10 flex'>
-                  <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
-                  <p className="text-lg mr-2">Tamaño del terreno:</p>
-                  <p className='text-xl font-bold'>{post.terrainSize} Varas cuadradas</p>
-                </div>
-
-                <div className='mt-1 flex'>
-                  <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
-                  <p className="text-lg mr-2 ">Tamaño de construccion:</p>
-                  <p className='text-xl font-bold'>{post.constructionSize} Varas cuadradas</p>
-                </div>
-
                 <div className='mt-8 flex'>
                   <img src={phonesvg} alt="phone icon" className="w-6 h-6 mr-2" />
                   <p className="text-lg mr-2">Contacto:</p>
                   <p className='text-2xl font-bold'>{post.contact}</p>
                 </div>
-
               </div>
             </div>
             <div className="mt-8 lg:flex lg:items-center">
-              {/* Descripcion */}
               <p className="lg:mr-7 text-gray-700 font-bold text-xl mb-8">{post.description}</p>
-
-              {/* WhatsApp */}
               <div className="lg:mt-0 mt-4">
                 <button
+                  className="text-2xl font-bold bg-white border border-green-500 text-green-500 px-6 py-4 rounded-full transition duration-300 hover:bg-green-500 hover:text-white flex items-center"
                   onClick={handleContactUs}
-                  className="text-2xl font-bold bg-white border border-green-500 text-green-500 px-6 py-4 rounded-full transition duration-300 hover:bg-green-500 hover:text-white flex items-center">
+                >
                   <span className="mr-2 flex-shrink-0">
                     <img src={WhatsAppIcon} alt="WhatsApp Icon" className="w-8 h-8" />
                   </span>
@@ -105,11 +80,10 @@ const PostView = () => {
               </div>
             </div>
           </>
-        )
-        }
+        )}
       </div>
 
-      <div className="mt-2 mb-10 flex items-center justify-center">
+      <div className="mt-2 md:mt-4 lg:mt-10 mb-10 flex items-center justify-center">
         <section className="flex flex-col w-full lg:flex-row lg:w-[1600px] lg:h-96">
           <div className="w-full lg:w-1/2 px-4 py-12 bg-[#ddc807] lg:px-12">
             <h3 className="mb-4 text-2xl lg:text-4xl font-bold font-anton tracking-wide">

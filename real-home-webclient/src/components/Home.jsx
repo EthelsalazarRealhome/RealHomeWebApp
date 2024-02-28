@@ -1,19 +1,22 @@
-import React from "react";
-import fondo from "../img/fondopto.jpg"
+import React, { useEffect } from "react";
+import fondo from "../img/fondopto.jpg";
 import img1 from "../img/ranchos/aren.jpeg";
 import img2 from "../img/ranchos/pisicin.jpeg";
 import img3 from "../img/ranchos/visti.jpeg";
 import img4 from "../img/ranchos/rncho.jpeg";
 import img5 from "../img/ranchos/Pslmers.jpeg";
 import { Link, useNavigate } from "react-router-dom";
-import propertie1 from '../img/prueba1.jpeg'
-import phonesvg from '../img/postsvgs/phone.svg.png'
-import Video from '../components/Video'
-import Footer from '../components/Footer'
+import propertie1 from '../img/prueba1.jpeg';
+import phonesvg from '../img/postsvgs/phone.svg.png';
+import Video from '../components/Video';
+import Footer from '../components/Footer';
 
 const Home = () => {
-
     const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []); 
 
     const handleGoProperties = () => {
         navigate("/Properties");
@@ -40,8 +43,7 @@ const Home = () => {
 
     const handleContactUsMessage = () => {
         const message = 'https://wa.link/53yqsh';
-
-        window.open(message, '_blank')
+        window.open(message, '_blank');
     };
 
     return (

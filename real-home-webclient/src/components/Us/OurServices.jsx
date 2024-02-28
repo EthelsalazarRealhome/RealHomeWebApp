@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import fondo from '../../img/services3.webp';
 
 const OurServices = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
+
   return (
     <div className="">
       <div className="min-h-[800px] w-full">

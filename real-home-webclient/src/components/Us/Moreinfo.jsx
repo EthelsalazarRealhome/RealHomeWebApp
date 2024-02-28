@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import foto from '../../img/fondopto.jpg'
 
 const Moreinfo = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
   return (
     <div className="">
     <div className="mt-8 min-h-[756px] w-full">
