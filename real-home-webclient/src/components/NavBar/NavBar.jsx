@@ -44,14 +44,14 @@ const NavBar = () => {
         <div className='flex flex-row justify-center items-center gap-7 z-10'>
 
           {isLogged &&
-            <NavLink to="/" className="font-bold text-lg flex items-center bg-gray-700 rounded p-3 cursor-pointer hover:opacity-80 hover:bg-[#042b5e] transition duration-200 ease-in-out">
+            <NavLink to="/" className="font-bold text-lg flex items-center bg-gray-700/70 rounded p-3 cursor-pointer hover:opacity-80 hover:bg-[#042b5e]/90 transition duration-200 ease-in-out">
               <button onClick={() => logout()} className='text-white text-2xl'>
                 LogOut
               </button>
             </NavLink>
           }
 
-          <div onClick={handleNav} className='z-30 flex items-center bg-gray-700 rounded p-3 cursor-pointer hover:opacity-80 hover:bg-[#042b5e] transition duration-200 ease-in-out'> 
+          <div onClick={handleNav} className='z-30 flex items-center bg-gray-700/70 rounded p-3 cursor-pointer hover:opacity-80 hover:bg-[#042b5e]/90 transition duration-200 ease-in-out'> 
             <p className=' text-white text-2xl font-bold'>Menu</p>
             <HiMenuAlt3 className="text-white" size={31} />
           </div>

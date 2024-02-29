@@ -61,7 +61,7 @@ function LogIn() {
 
           <button
             type="submit"
-            className="mb-5 shadow appearance-none border rounded w-full py-4 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline bg-[#ddc807]"
+            className="mb-5 shadow appearance-none rounded w-full py-4 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline bg-[#ddc807] hover:opacity-90 hover:text-black transition duration-300 ease-in-out"
           >
             Log in
           </button>

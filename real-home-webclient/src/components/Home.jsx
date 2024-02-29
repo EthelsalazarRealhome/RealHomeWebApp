@@ -57,10 +57,10 @@ const Home = () => {
                         <p className="font-bolder text-2xl py-4">Tenemos lo que necesitas!</p>
                         <h1 className="font-bold text-5xl md:text-7xl drop-shadow-2xl">Ethel Salazar-Real Home</h1>
                         <p className="max-w-[600px] drop-shadow-2xl py-2 text-xl mt-1"> Bienvenido a Real Home, donde convertimos sueños en hogares y necesidades en realidades. Somos más que una empresa de bienes raíces, somos constructores de experiencias habitables. Con un equipo de expertos dedicados a superar expectativas, ofrecemos un servicio excepcional, transparente y personalizado para cada cliente.</p>
-                        <button className="mt-1 border py-2 px-3 rounded-full mr-2 bg-white text-black"
+                        <button className="mt-1 border py-2 px-3 rounded-full mr-2 bg-white text-black hover:opacity-80 transition duration-300 ease-in-out"
                             onClick={handleGoProperties}> Buscar propiedades
                         </button>
-                        <button onClick={handleContactUs} className="mt-1 border py-2 px-3 rounded-full bg-black text-white">Contactanos!</button>
+                        <button onClick={handleContactUs} className="mt-1 border-2 py-2 px-3 rounded-full bg-black text-white hover:opacity-80 transition duration-300 ease-in-out">Contactanos!</button>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@ const Home = () => {
                     <p className="pb-6">Transparencia y Confianza: Información clara y transparente en todo el proceso, garantizando que estés completamente informado en cada etapa de la transacción.
                         Facilidad en la Gestión: Asistencia en todo el proceso de compra, desde la selección hasta el cierre, para que puedas enfocarte en encontrar tu hogar ideal mientras nosotros nos encargamos de los detalles.</p>
                     <div>
-                        <Link to="/Properties" state={{ from: "playa" }} className="text-2xl md:text-xl lg:text-2xl border py-2 px-3 rounded-full bg-[#042b5e] text-white font-bold hover:text-white hover:bg-[#ddc807] border-black mr-4 hover:shadow-xl">
+                        <Link to="/Properties" state={{ from: "playa" }} className="text-2xl md:text-xl lg:text-2xl border py-3 px-4 rounded-full bg-[#042b5e] text-white font-bold hover:text-white hover:bg-[#ddc807] transition duration-300 ease-in-out mr-4 hover:shadow-xl">
                             <span className="hidden lg:inline">Conoce mas sobre nuestros ranchos disponibles!</span>
                             <span className="sm:inline lg:hidden">Quiero conocer mas!</span>
                         </Link>
@@ -115,7 +115,7 @@ const Home = () => {
                         </p>
                         <div>
                             <a onClick={handleContactUsMessage}
-                                className="inline-flex items-center px-3 py-3 text-white transition-all duration-300 ease-in-out rounded-md 2xl:px-6 2xl:py-3 bg-green-500 hover:bg-white hover:text-green-600">
+                                className="inline-flex items-center px-3 py-3 text-white transition-all duration-300 ease-in-out rounded-md 2xl:px-6 2xl:py-3 bg-green-500 hover:bg-white hover:text-green-600 cursor-pointer">
                                 <span className="pr-4 font-semibold tracking-wide">Contactanos!</span>
                                 <img src={phonesvg} alt="phone icon" className="w-6 h-6 mr-2" />
                             </a>
