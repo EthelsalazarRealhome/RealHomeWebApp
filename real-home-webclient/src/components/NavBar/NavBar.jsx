@@ -42,22 +42,22 @@ const NavBar = () => {
             className=" text-white font-bold text-2xl z-20"> REAL HOME</h1>
         </NavLink>
 
-        <div className='flex flex-row gap-7 z-10'>
+        <div className='flex flex-row justify-center items-center gap-7 z-10'>
 
           {isLogged &&
-            <NavLink to="/" className="font-bold text-lg cursor-pointer">
+            <NavLink to="/" className="font-bold text-lg flex items-center bg-gray-700 rounded p-3 cursor-pointer hover:opacity-80 hover:bg-[#042b5e] transition duration-200 ease-in-out">
               <button onClick={() => logout()} className='text-white text-2xl'>
                 LogOut
               </button>
             </NavLink>
           }
 
-<div className='flex items-center'> {/* Wrap "Menu" and HiMenuAlt3 in a flex container */}
-    <p className=' text-white text-2xl p-1 font-bold'>Menu</p>
-    <HiMenuAlt3 onClick={handleNav} className="bg-gray-700 z-20 text-white cursor-pointer" size={25} />
-  </div>
+          <div onClick={handleNav} className='z-30 flex items-center bg-gray-700 rounded p-3 cursor-pointer hover:opacity-80 hover:bg-[#042b5e] transition duration-200 ease-in-out'> 
+            <p className=' text-white text-2xl font-bold'>Menu</p>
+            <HiMenuAlt3 className="text-white" size={31} />
+          </div>
 
-          <section className={nav ? "ease-in duration-300 fixed text-gray-300 right-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-10" : "absolute top-0 h-screen right-[-100%] ease-in duration-500 z-10"}>
+          <section className={nav ? "ease-in-out duration-500 fixed text-gray-300 right-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-10" : "absolute top-0 h-screen right-[-100%] ease-out duration-500 z-10"}>
             {
               (isLogged && (user?.roles?.includes(ROLES.ADMIN) || user?.roles?.includes(ROLES.SYSADMIN))) ? <AdminMenu closeNav={closeNav} /> : <UserMenu closeNav={closeNav} />
             }
