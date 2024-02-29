@@ -9,6 +9,7 @@ postController.save = async (req, res, next) => {
       title, 
       description, 
       price, 
+      neg_price,
       images, 
       service, 
       type, 
@@ -38,6 +39,7 @@ postController.save = async (req, res, next) => {
     post["title"] = title;
     post["description"] = description;
     post["price"] = price;
+    post["neg_price"] = neg_price;
     post["images"] = images;
     post["service"] = service;
     post["type"] = type;

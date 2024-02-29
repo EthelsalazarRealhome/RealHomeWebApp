@@ -17,7 +17,6 @@ export default function useUploadImage () {
       try {
         const uploadedImage = await sendImageToCloud(formData);
         imageArray.push(uploadedImage);
-        console.log("THIS IS EACH IMAGE: " + uploadedImage);
       } catch (err) {
         console.error(err);
       }

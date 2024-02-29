@@ -37,7 +37,7 @@ const Properties = () => {
       </div>
 
       {
-        loading ? <p>Cargando propiedades...</p> : <Posts posts={filteredPosts} />
+          loading ? <p>Cargando propiedades...</p> : <Posts posts={filteredPosts} />
       }
 
     </section>

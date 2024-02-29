@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useManagePost from "../../hooks/useManagePost";
 import useUploadImage from "../../hooks/useUploadImage";
 import { useDropzone } from 'react-dropzone'
-import CreatePostError from "./CreatePostError";
+//import CreatePostError from "./CreatePostError";
 
 
 const services = ["alquiler", "venta"];
@@ -16,6 +16,7 @@ const CreatePost = ({ editMode = false, postId = null, toEditPost = {} }) => {
   const [title, setTitle] = useState(editMode ? toEditPost.title : window.localStorage.getItem("title"));
   const [description, setDescription] = useState(editMode ? toEditPost.description : window.localStorage.getItem("description"));
   const [price, setPrice] = useState(editMode ? toEditPost.price : window.localStorage.getItem("price"));
+  const [neg_price, setNegPrice] = useState(editMode ? toEditPost.neg_price : window.localStorage.getItem("neg_price"));
   const [service, setService] = useState(editMode ? toEditPost.service : window.localStorage.getItem("service"));
   const [type, setType] = useState(editMode ? toEditPost.type : window.localStorage.getItem("type"));
   const [location, setLocation] = useState(editMode ? toEditPost.location : window.localStorage.getItem("location"));
@@ -26,12 +27,17 @@ const CreatePost = ({ editMode = false, postId = null, toEditPost = {} }) => {
   const [parking, setParking] = useState(editMode ? toEditPost.parking : window.localStorage.getItem("parking"));
   const [contact, setContact] = useState(editMode ? toEditPost.contact : window.localStorage.getItem("contact"));
 
+  const [isChecked, setIsChecked] = useState(window.localStorage.getItem("neg_price") ? ((window.localStorage.getItem("neg_price") === "true") ? true : false) : false);
+
   const [rawImages, setRawImages] = useState([]);
   const [preview, setPreview] = useState(editMode ? toEditPost.images : []);
   const { uploadImages, imagesLoading } = useUploadImage();
 
   const { isLoading, hasError, uploadPost } = useManagePost();
   const [isSucces, setIsSucces] = useState(false);
+
+  const navigate = useNavigate();
+
 
   const onDrop = useCallback(acceptedFiles => {
     setRawImages(acceptedFiles);
@@ -72,6 +78,7 @@ const CreatePost = ({ editMode = false, postId = null, toEditPost = {} }) => {
       title,
       description,
       price,
+      neg_price,
       images,
       service,
       type,
@@ -83,21 +90,25 @@ const CreatePost = ({ editMode = false, postId = null, toEditPost = {} }) => {
       parking,
       contact
     }, postId);
-    /* 
-    if (hasError) {
+     
+  /*   if (hasError) {
       navigate("/Admin/CreatePostError");
       return;
-    } */
+    }  */
 
     setIsSucces(!isSucces);
-    window.localStorage.clear();
   }
 
+  useEffect(() => {
+    if(hasError) navigate("/Admin/CreatePostError");
+  }, [hasError, navigate])
+  
+  window.localStorage.setItem("neg_price", isChecked.toString())  
 
   return (
     <>
       {
-        !hasError ?
+        //!hasError ?
 
           <div className="h-full flex flex-col justify-center items-center">
             <div className="max-w-2xl mx-auto p-4">
@@ -116,7 +127,7 @@ const CreatePost = ({ editMode = false, postId = null, toEditPost = {} }) => {
                 {
                   !editMode &&
                     <NavLink to="/Admin/AdminHome">
-                      <button className="bg-[#7187d5] text-white w-6/6 p-2 rounded-lg shadow-lg">Ir a Inicio</button>
+                      <button onClick={() => {window.localStorage.clear()}} className="bg-[#7187d5] text-white w-6/6 p-2 rounded-lg shadow-lg">Ir a Inicio</button>
                     </NavLink>
                 }
               </section>
@@ -225,22 +236,40 @@ const CreatePost = ({ editMode = false, postId = null, toEditPost = {} }) => {
                 </div>
 
                 <div className="flex flex-col">
-                  <label className="relative w-full m-3 lg:m-5">
-                    <input
-                      type="number"
-                      name="price"
-                      required
-                      className="px-4 h-12 w-full text-gray-700 text-l bg-inherit border-2 rounded border-gray-300 border-opacity-50 outline-none hover:border-gray-600 focus:border-blue-500 focus:text-gray-700 transition duration-200 peer"
-                      onChange={(e) => {
-                        setPrice(e.target.value);
-                        window.localStorage.setItem("price", e.target.value);
-                      }}
-                      value={price}
-                    />
-                    <span className="text-l cursor-text text-gray-700 text-opacity-80 absolute left-0 top-3 mx-2 px-1 transition duration-200 tracking-wide peer-focus:text-blue-500 pointer-events-none peer-focus:bg-white peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:-translate-x-3 ml-2 peer-valid:scale-75 peer-valid:bg-white peer-valid:-translate-y-6 peer-valid:-translate-x-3">
-                      Precio Propiedad (en dolares $)
-                    </span>
-                  </label>
+                    
+                  <div className="flex flex-row items-center justify-center gap-5">
+                    <label className="relative w-full m-3 lg:m-5">
+                      <input
+                        type="number"
+                        name="price"
+                        required
+                        className="px-4 h-12 w-full text-gray-700 text-l bg-inherit border-2 rounded border-gray-300 border-opacity-50 outline-none hover:border-gray-600 focus:border-blue-500 focus:text-gray-700 transition duration-200 peer"
+                        onChange={(e) => {
+                          setPrice(e.target.value);
+                          window.localStorage.setItem("price", e.target.value);
+                        }}
+                        value={price}
+                      />
+                      <span className="text-l cursor-text text-gray-700 text-opacity-80 absolute left-0 top-3 mx-2 px-1 transition duration-200 tracking-wide peer-focus:text-blue-500 pointer-events-none peer-focus:bg-white peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:-translate-x-3 ml-2 peer-valid:scale-75 peer-valid:bg-white peer-valid:-translate-y-6 peer-valid:-translate-x-3">
+                        Precio Propiedad (en dolares $)
+                      </span>
+                    </label>
+
+                    <div className="flex flex-row gap-2 items-center justify-center text-gray-700 text-opacity-80">
+                      <input
+                        type="checkbox"
+                        name="neg_price"
+                        id="neg_price"
+                        value={"true"}
+                        checked = {isChecked}
+                        onChange={() => {
+                          setIsChecked(!isChecked);
+                          setNegPrice((!isChecked).toString());
+                        }}
+                      />
+                      <label htmlFor="neg_price">Negociable</label>
+                    </div>
+                  </div>
 
                   <label className="relative w-full m-3 lg:m-5">
                     <input
@@ -372,14 +401,14 @@ const CreatePost = ({ editMode = false, postId = null, toEditPost = {} }) => {
 
           </div>
 
-          :
-
-          <CreatePostError />
+            
       }
     </>
   );
 }
+{/*  :
 
+ <CreatePostError /> */}
 
 
 export default CreatePost;

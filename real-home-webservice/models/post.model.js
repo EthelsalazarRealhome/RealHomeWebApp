@@ -16,6 +16,9 @@ const postSchema = new Schema({
     type: Number,
     required: true
   },
+  neg_price: {
+    type: String
+  },
   images: {
     type: [String],
     required: true

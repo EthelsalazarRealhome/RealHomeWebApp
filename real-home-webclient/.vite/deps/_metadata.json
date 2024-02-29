@@ -5,49 +5,49 @@
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "95860283",
+      "fileHash": "ec39bcaa",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "3198db4e",
+      "fileHash": "58620dcd",
       "needsInterop": true
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.js",
       "file": "react-router-dom.js",
-      "fileHash": "e5edc3ea",
+      "fileHash": "ced897f9",
       "needsInterop": false
     },
     "react-icons/hi": {
       "src": "../../node_modules/react-icons/hi/index.esm.js",
       "file": "react-icons_hi.js",
-      "fileHash": "dea36c1d",
+      "fileHash": "54b9e3bc",
       "needsInterop": false
     },
     "react-router": {
       "src": "../../node_modules/react-router/dist/index.js",
       "file": "react-router.js",
-      "fileHash": "580fc02a",
+      "fileHash": "a52cbe23",
       "needsInterop": false
     },
     "react-dropzone": {
       "src": "../../node_modules/react-dropzone/dist/es/index.js",
       "file": "react-dropzone.js",
-      "fileHash": "2b8aeacd",
+      "fileHash": "e973171e",
       "needsInterop": false
     },
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "1ee9bbb0",
+      "fileHash": "84802645",
       "needsInterop": false
     },
     "react-icons/bs": {
       "src": "../../node_modules/react-icons/bs/index.esm.js",
       "file": "react-icons_bs.js",
-      "fileHash": "793bf1f1",
+      "fileHash": "30b1cf18",
       "needsInterop": false
     }
   },

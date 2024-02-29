@@ -16,12 +16,16 @@ validators.createPostValidator = [
     .notEmpty().withMessage("Title is required"),
   
   body("description")
-    .notEmpty().withMessage("Description is required")
-    .isLength({ max: 1500 }).withMessage("Description max length is 1500 characters"),
+    .notEmpty().withMessage("Description is required"),
   
   body("price")
     .notEmpty().withMessage("Price is required")
     .isFloat().withMessage("Price must be a number"),
+
+  body("neg_price")
+    .optional()
+    .isLength({ max: 5 }).withMessage("neg_price must be 'true' or 'false'")
+    .isIn(["true", "false"]).withMessage("neg_price format incorrect"),
   
   body("images")
     .notEmpty().withMessage("Image is required")
@@ -42,23 +46,23 @@ validators.createPostValidator = [
     .isLength({ max: 100 }).withMessage("Location max length is 100 characters"),
   
   body("terrainSize")
-    .notEmpty().withMessage("terrainSize is required")
+    .notEmpty().withMessage("terrainSize is Required")
     .isFloat().withMessage("terrainSize must be a number"),
 
   body("constructionSize")
-    .notEmpty().withMessage("constructionSize is required")
+    .notEmpty().withMessage("constructionSize is Required")
     .isInt().withMessage("constructionSize must be a number"),
   
   body("rooms")
-    .notEmpty().withMessage("Rooms is required")
+    .notEmpty().withMessage("rooms is Required")
     .isInt().withMessage("Rooms must be a number"),
 
   body("restrooms")
-    .notEmpty().withMessage("Restrooms is required")
+    .notEmpty().withMessage("restrooms is Required")
     .isInt().withMessage("Restrooms must be a number"),
 
   body("parking")
-    .notEmpty().withMessage("Parking is required")
+    .notEmpty().withMessage("parking is Required")
     .isInt().withMessage("Parking must be a number"),
 
   body("contact")
