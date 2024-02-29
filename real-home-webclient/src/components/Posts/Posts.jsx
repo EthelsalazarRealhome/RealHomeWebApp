@@ -17,7 +17,7 @@ function Posts({ posts = [] }) {
                     <div className="text-lg font-bold text-green-500 mb-2">
                       Precio: ${post.price}
                       {post.service === "alquiler" ? "/mensuales" : null}
-                      {post.neg_price ? <p className="text-green-500 font-bold">Negociables</p> : null}
+                      {post.neg_price ? <p className="font-bold">Negociables</p> : null}
                     </div>
                   </div>
                   <div className="w-[70%] inline-block pl-2">

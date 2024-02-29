@@ -34,7 +34,7 @@ const PostView = () => {
     <div>
       <div>
       <button
-        className="mt-16 md:mt-8 lg:mt-16 text-xl md:text-2xl font-bold py-3 text-black flex items-center top-4 md:top-8 left-4 md:left-8"
+        className="mt-16 md:mt-8 lg:mt-16 text-xl md:text-2xl font-bold py-8 px-2 text-black flex items-center top-4 md:top-8 left-4 md:left-8"
         onClick={handleGoBack}
       >
         <span className="mr-0 flex-shrink-0">
@@ -48,14 +48,14 @@ const PostView = () => {
 
       <div className="container mx-auto px-6">
         {loading ? (
-          <p className="h-screen text-center text-2xl lg:text-8xl">Cargando propiedad...</p>
+          <p className="h-screen py-16 text-center text-2xl lg:text-5xl">Cargando propiedad...</p>
         ) : (
           <>
             <div className="flex flex-col lg:flex-row mt-8 md:mt-12 lg:mt-16">
               <ImgSlider images={post.images} />
               <div className="lg:ml-8">
                 <h2 className="text-4xl lg:text-5xl font-RubikMonoOne font-bold mb-2 lg:mb-5 mt-5">{post.title}</h2>
-                <p className="mt-2 text-2xl font-spaceGrotesk">{post.location}</p>
+                <p className="mt-2 text-2xl">{post.location}</p>
                 <div className="mt-6 text-3xl lg:text-4xl text-black font-bold">Precio: ${post.price}{(post.service === "alquiler") ? "/mensuales" : null} {post.neg_price ? <p className="text-green-500 font-bold">Negociables</p> : null}</div>
                 <p className='mt-12 text-3xl  text-[#ddc807] uppercase font-spaceGrotesk'>{post.service}</p>
                 <div className='flex mt-12'>
@@ -106,10 +106,8 @@ const PostView = () => {
                   className="text-2xl font-bold bg-white border border-green-500 text-green-500 px-6 py-4 rounded-full transition duration-300 hover:bg-green-500 hover:text-white flex items-center"
                   onClick={handleContactUs}
                 >
-                  <span className="mr-2 flex-shrink-0">
+                  <span className="flex mr-4 flex-shrink-0">
                     <img src={WhatsAppIcon} alt="WhatsApp Icon" className="w-8 h-8" />
-                  </span>
-                  <span className="flex-shrink-0">
                     WhatsApp
                   </span>
                 </button>
