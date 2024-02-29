@@ -15,7 +15,7 @@ function AdminPosts ({ posts=[] }) {
                   <div className="w-[50%] pr-2">
                     <p className="text-3xl font-semibold mb-2 font-anton">{ post.title }</p>
                     <p className="text-lg font-bold text-green-500 mb-2">
-                      Precio: ${ post.price.toLocaleString() }
+                      Precio: ${ post.price?.toLocaleString() }
                       {post.service === "alquiler" ? "/mensuales" : null}
                       {post.neg_price ? <p className="font-bold">Negociables</p> : null}
                     </p>

@@ -37,10 +37,10 @@ const PostView = () => {
         className="mt-16 md:mt-8 lg:mt-16 text-xl md:text-2xl font-bold py-8 px-2 text-black flex items-center top-4 md:top-8 left-4 md:left-8"
         onClick={handleGoBack}
       >
-        <span className="mr-0 flex-shrink-0">
+        <span className="mr-0 flex-shrink-0 ml-4">
           &larr;
         </span>
-        <span className="flex-shrink-0">
+        <span className="flex-shrink-0 p-2">
           Return
         </span>
       </button>
@@ -56,7 +56,7 @@ const PostView = () => {
               <div className="lg:ml-8">
                 <h2 className="text-4xl lg:text-5xl font-RubikMonoOne font-bold mb-2 lg:mb-5 mt-5">{post.title}</h2>
                 <p className="mt-2 text-2xl">{post.location}</p>
-                <div className="mt-6 text-3xl lg:text-4xl text-black font-bold">Precio: ${post.price.toLocaleString()}{(post.service === "alquiler") ? "/mensuales" : null} {post.neg_price ? <p className="text-green-500 font-bold">Negociables</p> : null}</div>
+                <div className="mt-6 text-3xl lg:text-4xl text-black font-bold">Precio: ${post.price?.toLocaleString()}{(post.service === "alquiler") ? "/mensuales" : null} {post.neg_price ? <p className="text-green-500 font-bold">Negociables</p> : null}</div>
                 <p className='mt-12 text-3xl  text-[#ddc807] uppercase font-spaceGrotesk'>{post.service}</p>
                 <div className='flex mt-12'>
                   <p className="text-2xl uppercase ">Tipo de Propiedad:</p>

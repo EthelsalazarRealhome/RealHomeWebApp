@@ -15,7 +15,7 @@ function Posts({ posts = [] }) {
                   <div className="w-[50%] pr-2">
                     <p className="text-xl sm:text-base md:text-lg lg:text-3xl xl:text-2xl font-semibold mb-2 font-anton line-clamp-2">{post.title}</p>
                     <div className="text-lg font-bold text-green-500 mb-2">
-                      Precio: ${post.price.toLocaleString()}
+                      Precio: ${post.price?.toLocaleString()}
                       {post.service === "alquiler" ? "/mensuales" : null}
                       {post.neg_price ? <p className="font-bold">Negociables</p> : null}
                     </div>
