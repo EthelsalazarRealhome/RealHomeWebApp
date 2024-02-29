@@ -15,7 +15,7 @@ const AdminHome = () => {
 
   return (
     <>
-      <div className="w-full h-[85vh] pb-[50px]">
+      <div className="w-full h-[86.8vh] pb-[50px]">
 
         <img className="top-0 left-0 w-full h-[750px] object-cover" src={fondo} alt="fondo" />
         <div className="bg-black/30 absolute top-0 left-0 w-full h-[750px]" />

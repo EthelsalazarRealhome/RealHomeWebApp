@@ -41,19 +41,19 @@ const NavBar = () => {
           <h1 className="text-white font-bold text-2xl z-20"> REAL HOME</h1>
         </NavLink>
 
-        <div className='flex flex-row gap-7 z-10'>
+        <div className='flex flex-row justify-center items-center gap-7 z-10'>
 
           {isLogged &&
-            <NavLink to="/" className="font-bold text-lg cursor-pointer">
+            <NavLink to="/" className="font-bold text-lg flex items-center bg-gray-700 rounded p-3 cursor-pointer hover:opacity-80 hover:bg-[#042b5e] transition duration-200 ease-in-out">
               <button onClick={() => logout()} className='text-white text-2xl'>
                 LogOut
               </button>
             </NavLink>
           }
 
-          <div className='flex items-center' onClick={handleNav}>
-            <p className='text-white text-2xl p-1 font-bold cursor-pointer'>Menu</p>
-            <HiMenuAlt3 className="bg-gray-700 z-20 text-white cursor-pointer" size={25} />
+          <div onClick={handleNav} className='z-30 flex items-center bg-gray-700 rounded p-3 cursor-pointer hover:opacity-80 hover:bg-[#042b5e] transition duration-200 ease-in-out'> 
+            <p className=' text-white text-2xl font-bold'>Menu</p>
+            <HiMenuAlt3 className="text-white" size={31} />
           </div>
 
           <section className={`fixed text-gray-300 right-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-10 transition-all duration-300 transform ${nav ? 'translate-x-0' : 'translate-x-full'}`}>
