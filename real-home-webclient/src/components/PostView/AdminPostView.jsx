@@ -98,7 +98,7 @@ const AdminPostView = () => {
               {/* Precio */}
               <div className='flex mt-4 sm:order-3 md:order-3 lg:order-3'>
                 <p className="text-lg mr-2">Precio:</p>
-                <div className="text-2xl text-black font-bold font-merriweather">${post.price}{(post.service === "alquiler") ? "/mensuales" : null} {post.neg_price ? <p className="text-green-500 font-bold">Negociables</p> : null}</div>
+                <div className="text-2xl text-black font-bold font-merriweather">${post.price.toLocaleString()}{(post.service === "alquiler") ? "/mensuales" : null} {post.neg_price ? <p className="text-green-500 font-bold">Negociables</p> : null}</div>
               </div>
 
               {/* Cuartos */}
