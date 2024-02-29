@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import WhatsAppIcon from '../../img/WhatsAppLogo.svg.png';
 import usePosts from '../../hooks/usePosts';
 import { useParams } from 'react-router-dom';
+import parkingsvg from '../../img/postsvgs/parked-car.svg';
+import roomsvg from '../../img/postsvgs/room.svg';
+import bathroomsvg from '../../img/postsvgs/bathroom.svg';
+import sizesvg from '../../img/postsvgs/size.svg';
 import phonesvg from '../../img/postsvgs/phone.svg.png';
 import propertie1 from '../../img/prueba1.jpeg';
 import ImgSlider from '../PostView/ImgSlider';
@@ -28,21 +32,23 @@ const PostView = () => {
 
   return (
     <div>
+      <div>
       <button
-        className="mt-16 md:mt-8 lg:mt-12 text-xl md:text-2xl font-bold bg-[#042b5e] border border-[#ddc807] text-white px-4 md:px-6 py-2 md:py-4 rounded-full transition duration-300 hover:bg-[#ddc807] hover:border-[#042b5e] hover:text-black flex items-center fixed top-4 md:top-8 left-4 md:left-8"
+        className="mt-16 md:mt-8 lg:mt-16 text-xl md:text-2xl font-bold py-3 text-black flex items-center top-4 md:top-8 left-4 md:left-8"
         onClick={handleGoBack}
       >
-        <span className="mr-2 flex-shrink-0">
+        <span className="mr-0 flex-shrink-0">
           &larr;
         </span>
         <span className="flex-shrink-0">
           Return
         </span>
       </button>
+      </div> 
 
-      <div className="container mx-auto mt-16 p-8 lg:p-16">
+      <div className="container mx-auto px-6">
         {loading ? (
-          <p className="h-screen">Cargando...</p>
+          <p className="h-screen text-center text-2xl lg:text-8xl">Cargando propiedad...</p>
         ) : (
           <>
             <div className="flex flex-col lg:flex-row mt-8 md:mt-12 lg:mt-16">
@@ -55,6 +61,36 @@ const PostView = () => {
                 <div className='flex mt-12'>
                   <p className="text-2xl uppercase ">Tipo de Propiedad:</p>
                   <p className="ml-2 text-2xl font-spaceGrotesk uppercase">{post.type}</p>
+                </div>
+
+                <div className='mt-12 flex'>
+                  <img src={roomsvg} alt="room icon" className="w-6 h-6 mr-2" />
+                  <p className="text-lg  mr-2">Cuartos:</p>
+                  <p className='text-2xl font-bold'>{post.rooms}</p>
+                </div>
+
+                <div className='mt-1 flex'>
+                  <img src={bathroomsvg} alt="bathroom icon" className="w-6 h-6 mr-2" />
+                  <p className="text-lg mr-2">Baños:</p>
+                  <p className='text-2xl font-bold '>{post.restrooms}</p>
+                </div>
+
+                <div className='mt-1 flex'>
+                  <img src={parkingsvg} alt="Parking icon" className="w-6 h-6 mr-2" />
+                  <p className="text-lg mr-2">Parqueos:</p>
+                  <p className='text-2xl font-bold'>{post.parking}</p>
+                </div>
+
+                <div className='mt-10 flex'>
+                  <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
+                  <p className="text-lg mr-2">Tamaño del terreno:</p>
+                  <p className='text-xl font-bold'>{post.terrainSize} Varas cuadradas</p>
+                </div>
+
+                <div className='mt-1 flex'>
+                  <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
+                  <p className="text-lg mr-2 ">Tamaño de construccion:</p>
+                  <p className='text-xl font-bold'>{post.constructionSize} Varas cuadradas</p>
                 </div>
                 <div className='mt-8 flex'>
                   <img src={phonesvg} alt="phone icon" className="w-6 h-6 mr-2" />

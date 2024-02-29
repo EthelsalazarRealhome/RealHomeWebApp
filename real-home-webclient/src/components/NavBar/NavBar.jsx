@@ -23,9 +23,9 @@ const NavBar = () => {
   const handleNav = () => {
     setNav(!nav);
     if (!nav) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'scroll'
+      document.body.style.overflow = 'scroll';
     }
   }
 
@@ -38,8 +38,7 @@ const NavBar = () => {
     <div className="fixed top-0 w-full z-50 ">
       <nav className="absolute w-full flex mt-[0px] justify-between p-4 items-center bg-black/20">
         <NavLink to={to} onClick={closeNav}>
-          <h1
-            className=" text-white font-bold text-2xl z-20"> REAL HOME</h1>
+          <h1 className="text-white font-bold text-2xl z-20"> REAL HOME</h1>
         </NavLink>
 
         <div className='flex flex-row gap-7 z-10'>
@@ -52,16 +51,17 @@ const NavBar = () => {
             </NavLink>
           }
 
-<div className='flex items-center'> {/* Wrap "Menu" and HiMenuAlt3 in a flex container */}
-    <p className=' text-white text-2xl p-1 font-bold'>Menu</p>
-    <HiMenuAlt3 onClick={handleNav} className="bg-gray-700 z-20 text-white cursor-pointer" size={25} />
-  </div>
+          <div className='flex items-center' onClick={handleNav}>
+            <p className='text-white text-2xl p-1 font-bold cursor-pointer'>Menu</p>
+            <HiMenuAlt3 className="bg-gray-700 z-20 text-white cursor-pointer" size={25} />
+          </div>
 
-          <section className={nav ? "ease-in duration-300 fixed text-gray-300 right-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-10" : "absolute top-0 h-screen right-[-100%] ease-in duration-500 z-10"}>
+          <section className={`fixed text-gray-300 right-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-10 transition-all duration-300 transform ${nav ? 'translate-x-0' : 'translate-x-full'}`}>
             {
               (isLogged && (user?.roles?.includes(ROLES.ADMIN) || user?.roles?.includes(ROLES.SYSADMIN))) ? <AdminMenu closeNav={closeNav} /> : <UserMenu closeNav={closeNav} />
             }
           </section>
+
         </div>
       </nav>
     </div>

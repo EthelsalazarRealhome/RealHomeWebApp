@@ -50,7 +50,6 @@ const Home = () => {
         <div>
         <div>
             <div className="w-full h-full">
-
                 <img className="top-0 left-0 w-full h-[750px] object-cover" src={fondo} alt="fondo" />
                 <div className="bg-black/30 absolute top-0 left-0 w-full h-[750px]" />
                 <div className="absolute top-0 w-full h-full flex flex-col justify-center text-white">
