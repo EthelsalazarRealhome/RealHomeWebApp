@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 function Posts({ posts = [] }) {
   const reversedPosts = posts.slice().reverse();
 
+  
+
   return (
     <ul className="mx-[50px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-4">
       {reversedPosts.length !== 0 ? (

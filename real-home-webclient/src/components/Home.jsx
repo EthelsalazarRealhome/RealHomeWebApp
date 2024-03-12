@@ -37,8 +37,8 @@ const Home = () => {
         navigate("/Team");
     };
 
-    const handleMoreinfo = () => {
-        navigate("/Moreinfo");
+    const handleBenefits = () => {
+        navigate("/Benefits");
     };
 
     const handleContactUsMessage = () => {
@@ -70,7 +70,7 @@ const Home = () => {
                 <div className="max-w-[900px] m-auto px-4 py-3 flex flex-wrap justify-between">
                     <button onClick={handleOurServices} className="text-xl font-bold text-gray-700 bg-[#ddc807] rounded p-4">Nuestros Servicios </button>
                     <button onClick={handleTeam} className="text-xl bg-[#042b5e] rounded p-4 text-white font-bold">Quienes Somos/Nuestro Equipo</button>
-                    <button onClick={handleMoreinfo} className="text-xl font-bold text-gray-700 bg-[#ddc807] rounded p-4">Conoce mas sobre nosotros!</button>
+                    <button onClick={handleBenefits} className="text-xl font-bold text-gray-700 bg-[#ddc807] rounded p-4">Conoce los beneficios!</button>
                 </div>
             </div>
 

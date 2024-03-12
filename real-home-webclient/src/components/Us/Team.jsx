@@ -2,6 +2,12 @@ import React from "react";
 import foto from "../../img/ethel.jpeg";
 
 const Team = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
+
+
   return (
     <div className="">
       <div className="min-h-screen w-full">
