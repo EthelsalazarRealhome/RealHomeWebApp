@@ -108,10 +108,10 @@ const Home = () => {
                 <div className="mt-2 md:mt-4 lg:mt-10 mb-10 flex items-center justify-center">
                     <section className="flex flex-col w-full lg:flex-row lg:w-[1600px] lg:h-96">
                         <div className="w-full lg:w-1/2 px-4 py-12 bg-[#ddc807] lg:px-12">
-                            <h3 className="mb-4 text-2xl lg:text-4xl font-anton tracking-wide">
+                            <h3 className="mb-4 text-2xl lg:text-4xl tracking-wide">
                                 Trabaja con nosotros hoy mismo!
                             </h3>
-                            <p className="mb-8 text-base lg:text-xl tracking-wide font-anton text-black">
+                            <p className="mb-8 text-base lg:text-xl tracking-wide  text-black">
                                 Obtén orientación individualizada para preparar y presentar tu propiedad de manera
                                 atractiva en el mercado, destacando sus mejores características y valor.
                             </p>

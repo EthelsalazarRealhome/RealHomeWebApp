@@ -50,11 +50,11 @@ const PostView = () => {
         </button>
       </div>
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto lg:mx-10 px-6">
         {loading ? (
           <p className="h-screen py-16 text-center text-2xl lg:text-4xl">Cargando propiedad...</p>
         ) : (
-          <>
+          <div className="mx-auto lg:mx-16"> {/* Add mx-10 class to the container */}
             <div className="flex flex-col lg:flex-row mt-2 md:mt-2 lg:mt-2">
               <ImgSlider images={post.images} />
               <div className="lg:ml-8">
@@ -138,7 +138,7 @@ const PostView = () => {
                 </button>
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
 
