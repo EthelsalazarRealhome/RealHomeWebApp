@@ -38,7 +38,7 @@ const PostView = () => {
     <div>
       <div>
         <button
-          className="mt-16 md:mt-8 lg:mt-16 text-xl md:text-2xl font-bold py-8 px-2 text-black flex items-center top-4 md:top-8 left-4 md:left-8"
+          className="mt-16 md:mt-8 lg:mt-16 text-xl md:text-2xl font-bold py-8 lg:py-4 px-2 text-black flex items-center top-4 md:top-8 left-4 md:left-8"
           onClick={handleGoBack}
         >
           <span className="mr-0 flex-shrink-0 ml-4">
@@ -145,10 +145,10 @@ const PostView = () => {
       <div className="mt-2 md:mt-4 lg:mt-10 mb-10 flex items-center justify-center">
         <section className="flex flex-col w-full lg:flex-row lg:w-[1600px] lg:h-96">
           <div className="w-full lg:w-1/2 px-4 py-12 bg-[#ddc807] lg:px-12">
-            <h3 className="mb-4 text-2xl lg:text-4xl font-anton tracking-wide">
+            <h3 className="mb-4 text-2xl lg:text-4xl tracking-wide">
               Trabaja con nosotros hoy mismo!
             </h3>
-            <p className="mb-8 text-base lg:text-xl tracking-wide font-anton text-black">
+            <p className="mb-8 text-base lg:text-xl tracking-wide text-black">
               Obtén orientación individualizada para preparar y presentar tu propiedad de manera
               atractiva en el mercado, destacando sus mejores características y valor.
             </p>
