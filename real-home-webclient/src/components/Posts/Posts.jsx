@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 function Posts({ posts = [] }) {
   const reversedPosts = posts.slice().reverse();
 
-  
-
   return (
     <ul className="mx-[50px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-4">
       {reversedPosts.length !== 0 ? (
@@ -32,7 +30,7 @@ function Posts({ posts = [] }) {
           </li>
         ))
       ) : (
-        <section className="container mx-auto px-6 py-16 mb-11 text-2xl lg:text-6xl">
+        <section className="mx-auto px-6 py-16 mb-11 text-2xl lg:text-4xl">
           <p className="">No se encontraron propiedades con los parámetros dados</p>
         </section>
       )}

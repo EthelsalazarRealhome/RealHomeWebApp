@@ -87,19 +87,17 @@ const Home = () => {
                 <div className="flex flex-col h-full justify-center">
                     <h3 className="text-6xl md:text-6xl font-bold">Encuentra tu rancho ideal</h3>
                     <p className="text-3xl py-6 "> Desde la venta y alquiler de propiedades hasta la búsqueda precisa de tu próximo hogar, estamos aquí para transformar cada paso del proceso inmobiliario en una experiencia emocionante y satisfactoria. Descubre cómo podemos hacer realidad tus objetivos inmobiliarios hoy mismo.</p>
-                    <p className="pb-6">Transparencia y Confianza: Información clara y transparente en todo el proceso, garantizando que estés completamente informado en cada etapa de la transacción.
-                        Facilidad en la Gestión: Asistencia en todo el proceso de compra, desde la selección hasta el cierre, para que puedas enfocarte en encontrar tu hogar ideal mientras nosotros nos encargamos de los detalles.</p>
                     <div>
                         <Link to="/Properties" state={{ from: "playa" }} className="text-2xl md:text-xl lg:text-2xl border py-3 px-4 rounded-full bg-[#042b5e] text-white font-bold hover:text-white hover:bg-[#ddc807] transition duration-300 ease-in-out mr-4 hover:shadow-xl">
                             <span className="hidden lg:inline">Conoce mas sobre nuestros ranchos disponibles!</span>
-                            <span className="sm:inline lg:hidden">Quiero conocer mas!</span>
+                            <span className=" sm:inline lg:hidden">Quiero conocer mas!</span>
                         </Link>
                     </div>
                 </div>
             </div>
-            
-            <hr></hr>
 
+            <hr></hr>
+            
             <div className="flex flex-col justify-center items-center max-w-screen-md w-full p-5 mx-auto">
                 <p className="mb-5 font-merriweather text-4xl font-bold"></p>
                 <Video />

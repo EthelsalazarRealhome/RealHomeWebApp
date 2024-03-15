@@ -32,25 +32,25 @@ const PostView = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-}, []);
+  }, []);
 
   return (
     <div>
       <div>
-      <button
-        className="mt-16 md:mt-8 lg:mt-16 text-xl md:text-2xl font-bold py-8 px-2 text-black flex items-center top-4 md:top-8 left-4 md:left-8"
-        onClick={handleGoBack}
-      >
-        <span className="mr-0 flex-shrink-0 ml-4">
-          &larr;
-        </span>
-        <span className="flex-shrink-0 p-2">
-          Return
-        </span>
-      </button>
-      </div> 
+        <button
+          className="mt-16 md:mt-8 lg:mt-16 text-xl md:text-2xl font-bold py-8 px-2 text-black flex items-center top-4 md:top-8 left-4 md:left-8"
+          onClick={handleGoBack}
+        >
+          <span className="mr-0 flex-shrink-0 ml-4">
+            &larr;
+          </span>
+          <span className="flex-shrink-0 p-2">
+            Return
+          </span>
+        </button>
+      </div>
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-8 px-6">
         {loading ? (
           <p className="h-screen py-16 text-center text-2xl lg:text-4xl">Cargando propiedad...</p>
         ) : (
@@ -68,54 +68,54 @@ const PostView = () => {
                 </div>
 
                 <div className='mt-8 flex'>
-  {post.rooms > 0 && (
-    <>
-      <img src={roomsvg} alt="room icon" className="w-6 h-6 mr-2" />
-      <p className="text-lg  mr-2">Cuartos:</p>
-      <p className='text-2xl font-bold'>{post.rooms}</p>
-    </>
-  )}
-</div>
+                  {post.rooms > 0 && (
+                    <>
+                      <img src={roomsvg} alt="room icon" className="w-6 h-6 mr-2" />
+                      <p className="text-lg  mr-2">Cuartos:</p>
+                      <p className='text-2xl font-bold'>{post.rooms}</p>
+                    </>
+                  )}
+                </div>
 
-<div className='mt-1 flex'>
-  {post.restrooms > 0 && (
-    <>
-      <img src={bathroomsvg} alt="bathroom icon" className="w-6 h-6 mr-2" />
-      <p className="text-lg mr-2">Baños:</p>
-      <p className='text-2xl font-bold '>{post.restrooms}</p>
-    </>
-  )}
-</div>
+                <div className='mt-1 flex'>
+                  {post.restrooms > 0 && (
+                    <>
+                      <img src={bathroomsvg} alt="bathroom icon" className="w-6 h-6 mr-2" />
+                      <p className="text-lg mr-2">Baños:</p>
+                      <p className='text-2xl font-bold '>{post.restrooms}</p>
+                    </>
+                  )}
+                </div>
 
-<div className='mt-1 flex'>
-  {post.parking > 0 && (
-    <>
-      <img src={parkingsvg} alt="Parking icon" className="w-6 h-6 mr-2" />
-      <p className="text-lg mr-2">Parqueos:</p>
-      <p className='text-2xl font-bold'>{post.parking}</p>
-    </>
-  )}
-</div>
+                <div className='mt-1 flex'>
+                  {post.parking > 0 && (
+                    <>
+                      <img src={parkingsvg} alt="Parking icon" className="w-6 h-6 mr-2" />
+                      <p className="text-lg mr-2">Parqueos:</p>
+                      <p className='text-2xl font-bold'>{post.parking}</p>
+                    </>
+                  )}
+                </div>
 
-<div className='mt-1 flex'>
-  {post.terrainSize > 0 && (
-    <>
-      <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
-      <p className="text-lg mr-2">Tamaño del terreno:</p>
-      <p className='text-xl font-bold'>{post.terrainSize} Varas cuadradas</p>
-    </>
-  )}
-</div>
+                <div className='mt-1 flex'>
+                  {post.terrainSize > 0 && (
+                    <>
+                      <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
+                      <p className="text-lg mr-2">Tamaño del terreno:</p>
+                      <p className='text-xl font-bold'>{post.terrainSize} Varas cuadradas</p>
+                    </>
+                  )}
+                </div>
 
-<div className='mt-1 flex'>
-  {post.constructionSize > 0 && (
-    <>
-      <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
-      <p className="text-lg mr-2 ">Tamaño de construcción:</p>
-      <p className='text-xl font-bold'>{post.constructionSize} Varas cuadradas</p>
-    </>
-  )}
-</div>
+                <div className='mt-1 flex'>
+                  {post.constructionSize > 0 && (
+                    <>
+                      <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
+                      <p className="text-lg mr-2 ">Tamaño de construcción:</p>
+                      <p className='text-xl font-bold'>{post.constructionSize} Varas cuadradas</p>
+                    </>
+                  )}
+                </div>
                 <div className='mt-8 flex'>
                   <img src={phonesvg} alt="phone icon" className="w-6 h-6 mr-2" />
                   <p className="text-lg mr-2">Contacto:</p>
@@ -124,24 +124,24 @@ const PostView = () => {
               </div>
             </div>
             <div className="mt-8 lg:flex lg:items-center">
-  <p
-    className="lg:mr-7 text-gray-700 font-bold text-xl mb-8"
-    style={{ whiteSpace: 'pre-line' }}
-  >
-    {post.description}
-  </p>
-  <div className="lg:mt-0 mt-4">
-    <button
-      className="text-2xl font-bold bg-white border border-green-500 text-green-500 px-6 py-4 rounded-full transition duration-300 hover:bg-green-500 hover:text-white flex items-center"
-      onClick={handleContactUs}
-    >
-      <span className="flex mr-4 flex-shrink-0">
-        <img src={WhatsAppIcon} alt="WhatsApp Icon" className="w-8 h-8" />
-        WhatsApp
-      </span>
-    </button>
-  </div>
-</div>
+              <p
+                className="lg:mr-7 text-gray-700 font-bold text-xl mb-8"
+                style={{ whiteSpace: 'pre-line' }}
+              >
+                {post.description}
+              </p>
+              <div className="lg:mt-0 mt-4">
+                <button
+                  className="text-2xl font-bold bg-white border border-green-500 text-green-500 px-6 py-4 rounded-full transition duration-300 hover:bg-green-500 hover:text-white flex items-center"
+                  onClick={handleContactUs}
+                >
+                  <span className="flex mr-4 flex-shrink-0">
+                    <img src={WhatsAppIcon} alt="WhatsApp Icon" className="w-8 h-8" />
+                    WhatsApp
+                  </span>
+                </button>
+              </div>
+            </div>
           </>
         )}
       </div>

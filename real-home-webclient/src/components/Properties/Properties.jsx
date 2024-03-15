@@ -5,6 +5,12 @@ import Posts from "../Posts/Posts";
 import { useLocation } from "react-router-dom"; 
 
 const Properties = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []); 
+
+
   const location = useLocation();
   const [selectedFilter, setSelectedFilter] = useState({
     type: location.state ? location.state.from : "",
