@@ -58,7 +58,7 @@ const PostView = () => {
             <div className="flex flex-col lg:flex-row mt-2 md:mt-2 lg:mt-2">
               <ImgSlider images={post.images} />
               <div className="lg:ml-8">
-                <h2 className="text-4xl lg:text-4xl font-RubikMonoOne mb-2 lg:mb-5 mt-5">{post.title}</h2>
+                <h2 className="text-4xl lg:text-4xl  font-semibold mb-2 lg:mb-5 mt-5">{post.title}</h2>
                 <p className="mt-2 text-2xl">{post.location}</p>
                 <div className="mt-6 text-3xl lg:text-2xl text-black ">Precio: ${post.price?.toLocaleString()}{(post.service === "alquiler") ? "/mensuales" : null} {post.neg_price ? <p className="text-green-500 font-bold">Negociables</p> : null}</div>
                 <p className='mt-12 text-3xl  text-[#ddc807] uppercase font-spaceGrotesk'>{post.service}</p>
