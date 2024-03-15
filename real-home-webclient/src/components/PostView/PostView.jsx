@@ -50,7 +50,7 @@ const PostView = () => {
         </button>
       </div>
 
-      <div className="container mx-8 px-6">
+      <div className="container mx-auto px-6">
         {loading ? (
           <p className="h-screen py-16 text-center text-2xl lg:text-4xl">Cargando propiedad...</p>
         ) : (
@@ -62,10 +62,7 @@ const PostView = () => {
                 <p className="mt-2 text-2xl">{post.location}</p>
                 <div className="mt-6 text-3xl lg:text-2xl text-black ">Precio: ${post.price?.toLocaleString()}{(post.service === "alquiler") ? "/mensuales" : null} {post.neg_price ? <p className="text-green-500 font-bold">Negociables</p> : null}</div>
                 <p className='mt-12 text-3xl  text-[#ddc807] uppercase font-spaceGrotesk'>{post.service}</p>
-                <div className='flex mt-8'>
-                  <p className="text-xl uppercase ">Tipo de Propiedad:</p>
-                  <p className="ml-2 text-xl font-spaceGrotesk uppercase">{post.type}</p>
-                </div>
+                <p className="mt-8 text-xl lg:text-2xl font-spaceGrotesk uppercase">{post.type}</p>
 
                 <div className='mt-8 flex'>
                   {post.rooms > 0 && (
@@ -118,8 +115,7 @@ const PostView = () => {
                 </div>
                 <div className='mt-8 flex'>
                   <img src={phonesvg} alt="phone icon" className="w-6 h-6 mr-2" />
-                  <p className="text-lg mr-2">Contacto:</p>
-                  <p className='text-2xl font-bold'>{post.contact}</p>
+                  <p className='text-2xl lg:text-xl font-bold'>{post.contact}</p>
                 </div>
               </div>
             </div>
