@@ -7,7 +7,7 @@ import roomsvg from '../../img/postsvgs/room.svg';
 import bathroomsvg from '../../img/postsvgs/bathroom.svg';
 import sizesvg from '../../img/postsvgs/size.svg';
 import phonesvg from '../../img/postsvgs/phone.svg.png';
-import propertie1 from '../../img/prueba1.jpeg';
+import propertie1 from '../../img/este1.jpeg';
 import ImgSlider from '../PostView/ImgSlider';
 
 const PostView = () => {

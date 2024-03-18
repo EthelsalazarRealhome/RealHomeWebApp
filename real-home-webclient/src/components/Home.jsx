@@ -6,7 +6,7 @@ import img3 from "../img/ranchos/visti.jpeg";
 import img4 from "../img/ranchos/rncho.jpeg";
 import img5 from "../img/ranchos/Pslmers.jpeg";
 import { Link, useNavigate } from "react-router-dom";
-import propertie1 from '../img/prueba1.jpeg';
+import propertie1 from '../img/este1.jpeg';
 import phonesvg from '../img/postsvgs/phone.svg.png';
 import Video from '../components/Video';
 import Footer from '../components/Footer';
