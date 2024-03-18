@@ -15,18 +15,18 @@ function Posts({ posts = [] }) {
                   <div className="w-[100%] pr-2">
                     <p className="text-lg sm:text-base md:text-lg lg:text-lg xl:text-2xl font-semibold mb-2 line-clamp-2">{post.title}</p>
                     <div className="flex">
-                    <div className="text-lg text-green-500 mb-2">
-                    ${post.price?.toLocaleString()}
-                      {post.service === "alquiler" ? "/mensuales" : null}
-                      {post.neg_price ? <p className="">Negociables</p> : null}
+                      <div className="text-lg text-green-500 mb-2">
+                        ${post.price?.toLocaleString()}
+                        {post.service === "alquiler" ? "/mensuales" : null}
+                        {post.neg_price ? <p className="">Negociables</p> : null}
                       </div>
-                  <div className="w-[70%] inline-block pl-2">
-                    <p className="bg-[#ddc807] text-center rounded-md text-white font-semibold text-base mb-2">{post.service}</p>
-                    <p className="bg-[#042b5e] text-center rounded-md text-white font-semibold text-base">{post.type}</p>
-                  </div>
-                  </div>
+                      <div className="w-[70%] inline-block pl-2">
+                        <p className="bg-[#ddc807] text-center rounded-md text-white font-semibold text-base mb-2">{post.service}</p>
+                        <p className="bg-[#042b5e] text-center rounded-md text-white font-semibold text-base">{post.type}</p>
+                      </div>
                     </div>
-                  
+                  </div>
+
                 </div>
               </div>
             </NavLink>

@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import foto from "../../img/ethel.jpeg";
+import foto from "../../img/tm1.jpeg";
 
 const Team = () => {
 
