@@ -10,6 +10,7 @@ import roomsvg from '../../img/postsvgs/room.svg';
 import bathroomsvg from '../../img/postsvgs/bathroom.svg';
 import sizesvg from '../../img/postsvgs/size.svg';
 import phonesvg from '../../img/postsvgs/phone.svg.png';
+import ImgSlider from './ImgSlider';
 
 const AdminPostView = () => {
   const { postId } = useParams();
@@ -66,94 +67,99 @@ const AdminPostView = () => {
                 </button>
               </div>
 
-              <section className="flex flex-row items-center justify-center gap-7 mb-4">
-                {post.images?.map((image) => (
-                  <figure key={image} className="h-96 w-3/5 shadow-lg">
-                    <img className="w-full h-full object-cover rounded-lg" src={image} alt="/" />
-                  </figure>
-                ))}
-              </section>
+              <div className="container mx-auto lg:mx-10 px-6">
+        {loading ? (
+          <p className="h-screen py-16 text-center text-2xl lg:text-4xl">Cargando propiedad...</p>
+        ) : (
+          <div className="mx-auto lg:mx-16"> 
+            <div className="flex flex-col lg:flex-row mt-2 md:mt-2 lg:mt-2">
+              <ImgSlider images={post.images} />
+              <div className="lg:ml-8">
+                <h2 className="text-4xl lg:text-4xl  font-semibold mb-2 lg:mb-5 mt-5">{post.title}</h2>
+                <p className="mt-2 text-2xl">{post.location}</p>
+                <div className="mt-6 text-3xl lg:text-2xl text-black ">Precio: ${post.price?.toLocaleString()}{(post.service === "alquiler") ? "/mensuales" : null} {post.neg_price ? <p className="text-green-500 font-bold">Negociables</p> : null}</div>
+                <p className='mt-12 text-3xl  text-[#ddc807] uppercase font-spaceGrotesk'>{post.service}</p>
+                <p className="mt-8 text-xl lg:text-2xl font-spaceGrotesk uppercase">{post.type}</p>
 
-              <h2 className="text-5xl font-RubikMonoOne font-bold mb-5 mt-6">{post.title}</h2>
+                <div className='mt-8 flex'>
+                  {post.rooms > 0 && (
+                    <>
+                      <img src={roomsvg} alt="room icon" className="w-6 h-6 mr-2" />
+                      <p className="text-lg  mr-2">Cuartos:</p>
+                      <p className='text-2xl font-bold'>{post.rooms}</p>
+                    </>
+                  )}
+                </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2">
+                <div className='mt-1 flex'>
+                  {post.restrooms > 0 && (
+                    <>
+                      <img src={bathroomsvg} alt="bathroom icon" className="w-6 h-6 mr-2" />
+                      <p className="text-lg mr-2">Baños:</p>
+                      <p className='text-2xl font-bold '>{post.restrooms}</p>
+                    </>
+                  )}
+                </div>
 
-              {/* Post Service */}
-              <div className='flex mt-0 sm:order-1 md:order-1 lg:order-1'>
-                <p className='mt-3 text-4xl text-[#ddc807] font-bold uppercase font-spaceGrotesk'>{post.service}</p>
+                <div className='mt-1 flex'>
+                  {post.parking > 0 && (
+                    <>
+                      <img src={parkingsvg} alt="Parking icon" className="w-6 h-6 mr-2" />
+                      <p className="text-lg mr-2">Parqueos:</p>
+                      <p className='text-2xl font-bold'>{post.parking}</p>
+                    </>
+                  )}
+                </div>
+
+                <div className='mt-1 flex'>
+                  {post.terrainSize > 0 && (
+                    <>
+                      <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
+                      <p className="text-lg mr-2">Tamaño del terreno:</p>
+                      <p className='text-xl font-bold'>{post.terrainSize} Varas cuadradas</p>
+                    </>
+                  )}
+                </div>
+
+                <div className='mt-1 flex'>
+                  {post.constructionSize > 0 && (
+                    <>
+                      <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
+                      <p className="text-lg mr-2 ">Tamaño de construcción:</p>
+                      <p className='text-xl font-bold'>{post.constructionSize} Varas cuadradas</p>
+                    </>
+                  )}
+                </div>
+                <div className='mt-8 flex'>
+                  <img src={phonesvg} alt="phone icon" className="w-6 h-6 mr-2" />
+                  <p className='text-2xl lg:text-xl font-bold'>{post.contact}</p>
+                </div>
               </div>
-
-              {/*Tipo */}
-              <div className="flex mt-4 sm:order-2 md:order-2 lg:order-2">
-                <p className="text-lg mr-2">Tipo de Propiedad:</p>
-                <p className="text-2xl font-bold uppercase text-[#042b5e]">{post.type}</p>
+            </div>
+            <div className="mt-8 lg:flex lg:items-center">
+              <p
+                className="lg:mr-7 text-gray-700 font-bold text-xl mb-8"
+                style={{ whiteSpace: 'pre-line' }}
+              >
+                {post.description}
+              </p>
+              <div className="lg:mt-0 mt-4">
+                <button
+                  className="text-2xl font-bold bg-white border border-green-500 text-green-500 px-6 py-4 rounded-full transition duration-300 hover:bg-green-500 hover:text-white flex items-center"
+                  onClick={handleContactUs}
+                >
+                  <span className="flex mr-4 flex-shrink-0">
+                    <img src={WhatsAppIcon} alt="WhatsApp Icon" className="w-8 h-8" />
+                    WhatsApp
+                  </span>
+                </button>
               </div>
+            </div>
+          </div>
+        )}
+      </div>
 
-              {/* Ubicacion */}
-              <div className="flex mt-4 sm:order-2 md:order-2 lg:order-2">
-                <p className="text-lg mr-2">Ubicacion:</p>
-                <p className="text-2xl font-bold">{post.location}</p>
-              </div>
-
-              {/* Precio */}
-              <div className='flex mt-4 sm:order-3 md:order-3 lg:order-3'>
-                <p className="text-lg mr-2">Precio:</p>
-                <div className="text-2xl text-black font-bold font-merriweather">${post.price?.toLocaleString()}{(post.service === "alquiler") ? "/mensuales" : null} {post.neg_price ? <p className="text-green-500 font-bold">Negociables</p> : null}</div>
-              </div>
-
-              {/* Cuartos */}
-              <div className='flex mt-3 sm:order-4 md:order-4 lg:order-4'>
-                <img src={roomsvg} alt="room icon" className="w-6 h-6 mr-2" />
-                <p className="text-lg  mr-2">Cuartos:</p>
-                <p className='text-2xl font-bold'>{post.rooms}</p>
-              </div>
-
-              {/* Banos */}
-              <div className='flex mb-2 mt-2 sm:order-5 md:order-5 lg:order-5'>
-                <img src={bathroomsvg} alt="bathroom icon" className="w-6 h-6 mr-2" />
-                <p className="text-lg mr-2">Baños:</p>
-                <p className='text-2xl font-bold '>{post.restrooms}</p>
-              </div>
-
-              {/* Parqueos */}
-              <div className='flex sm:mb-6 sm:mt-2 lg:mt-0 lg:mb-0 lg:order-6'>
-                <img src={parkingsvg} alt="Parking icon" className="w-6 h-6 mr-2" />
-                <p className="text-lg mr-2">Parqueos:</p>
-                <p className='text-2xl font-bold'>{post.parking}</p>
-              </div>
-
-              {/* Tamano del terreno */}
-              <div className='flex mt-2 sm:order-7 md:order-7 lg:order-7'>
-                <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
-                <p className="text-lg mr-2">Tamaño del terreno:</p>
-                <p className='text-xl font-bold'>{post.terrainSize} Varas cuadradas</p>
-              </div>
-
-              {/* Tamano de construccion */}
-              <div className='flex mb-4 mt-3 sm:order-8 md:order-8 lg:order-8'>
-                <img src={sizesvg} alt="size icon" className="w-6 h-6 mr-2" />
-                <p className="text-lg mr-2 ">Tamaño de construccion:</p>
-                <p className='text-xl font-bold'>{post.constructionSize} Varas cuadradas</p>
-              </div>
-
-              {/* Contacto */}
-              <div className='flex mt-1 sm:order-9 md:order-9 lg:order-9'>
-                <img src={phonesvg} alt="phone icon" className="w-6 h-6 mr-2" />
-                <p className="text-lg mr-2">Contacto:</p>
-                <p className='text-2xl font-bold'>{post.contact}</p>
-              </div>
-
-              {/* Descripcion */}
-              <div className='flex sm:mt-4 md:mt-3 lg:mt-3 sm:order-10 md:order-10 lg:order-10'>
-                <p className="text-lg mr-2">Descripción:</p>
-                <p className="text-gray-700 font-bold text-xl">{post.description} </p>
-              </div>
-
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-              </div>
-            </>
+              </>
           )}
         </div>
       )}
